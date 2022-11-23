@@ -15,6 +15,10 @@ namespace AD41HN_HFT_2022231.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
+        public virtual Team Team { get; set; }
+
+        public int TrainerId { get; set; }
+        public int TeamId { get; set; }
         public int Age { get; set; }
         public string Club { get; set; }
 

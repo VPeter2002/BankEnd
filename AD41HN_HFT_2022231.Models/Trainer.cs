@@ -17,6 +17,8 @@ namespace AD41HN_HFT_2022231.Models
         public int Age { get; set; }
         [Required]
         public string TeamName { get; set; }
+        public virtual Team team { get; set; }
+       // public virtual ICollection<Player> Players { get; set; }
 
         public Trainer(int id, string name, string teamName, int age = 999)
         {

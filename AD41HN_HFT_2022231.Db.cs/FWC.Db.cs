@@ -27,30 +27,35 @@ namespace AD41HN_HFT_2022231.Db
             if (!builder.IsConfigured)
             {
                 //builder.UseInMemoryDatabase("db");
-                builder.UseSqlServer(@"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|
-                                        \FWC.db.mdf\;Integrated Security=True");
-                //builder.UseLazyLoadingProxies();
+                builder.UseSqlServer(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\Database1.mdf; Integrated Security = True");
+                                       
+                builder.UseLazyLoadingProxies();
             }
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            var players = new Player(1, "Lajos");
-            var teams = new Team("Magyar") { PlayerId = 1, TrainerId = 1 };
+            var players = new Player(1, "Lajos") { TeamId=1};
+            var teams = new Team("Magyar") { PlayerId = 1, TrainerId = 1 , Id=1};
             var trainers = new Trainer(1, "István", "Magyar");
 
             builder.Entity<Player>().HasData(players);
             builder.Entity<Team>().HasData(teams);
             builder.Entity<Trainer>().HasData(trainers);
 
-            builder.Entity<Player>(p => p
-                            .HasOne<Team>()
-                            .WithMany()
-                            .HasForeignKey(p => p.Id));
-            builder.Entity<Trainer>(t => t
-                            .HasOne<Team>()
-                            .WithMany()
-                            .HasForeignKey(t => t.Id));
+            builder.Entity<Player>()
+                            .HasOne(t => t.Team)
+                            .WithMany(p=> p.Players)
+                            .HasForeignKey(p=>p.TeamId);
+
+
+
+            builder.Entity<Team>(t => t
+                            .HasOne(t => t.Trainer)
+                            .WithOne(t => t.team)
+                            .HasForeignKey<Team>(t=>t.TrainerId))
+                            ;
+            
 
         }
 
