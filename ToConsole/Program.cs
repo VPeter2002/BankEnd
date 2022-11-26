@@ -10,7 +10,7 @@ namespace ToConsole
         {
             FWCDbContext ctx = new FWCDbContext();
             var q0 = ctx.Players.Where(t=>t.Team.Name=="Magyar").Select(t=>t.Name);
-            ;
+            
             foreach (var item in q0)
             {
 

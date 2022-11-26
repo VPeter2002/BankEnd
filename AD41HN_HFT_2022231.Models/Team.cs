@@ -11,10 +11,8 @@ namespace AD41HN_HFT_2022231.Models
     {
         [Key]
         public int Id { get; set; } 
-        public int PlayerId { get; set; }
         public int TrainerId { get; set; }
         public string Name { get; set; }
-        public string Nationality { get; set; }
         public virtual ICollection<Player> Players { get; set; }
         public virtual Trainer Trainer { get; set; }
         public Team(string name)

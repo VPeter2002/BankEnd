@@ -18,11 +18,9 @@ namespace AD41HN_HFT_2022231.Models
         public virtual Team Team { get; set; }
         public int TeamId { get; set; }
         public string Post { get; set; }
-
-        public Player(int id, string name)
+        public Player()
         {
-            Id = id;
-            Name = name;
+
         }
     }
 }

@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AD41HN_HFT_2022231.Db.cs\AD41HN_HFT_2022231.Db.cs.csproj" />
   </ItemGroup>
 

@@ -14,18 +14,18 @@ namespace AD41HN_HFT_2022231.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Age { get; set; }
         [Required]
         public string TeamName { get; set; }
         public virtual Team team { get; set; }
-       // public virtual ICollection<Player> Players { get; set; }
+        public Trainer()
+        {
 
-        public Trainer(int id, string name, string teamName, int age = 999)
+        }
+        public Trainer(int id, string name, string teamName)
         {
             Id = id;
             Name = name;
             TeamName = teamName;
-            Age = age;
         }
     }
 }
