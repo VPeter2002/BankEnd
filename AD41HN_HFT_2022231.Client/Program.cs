@@ -20,13 +20,16 @@ namespace AD41HN_HFT_2022231.Client
 
             var playerrepo = new PlayerRepository(ctx);
             var teamrepo = new TeamRepository(ctx);
+            var trainerrepo = new TrainerRepository(ctx);
 
 
             var Playerlogic = new PlayerLogic(playerrepo);
             var Teamlogic = new TeamLogic(teamrepo);
+            var Trainerlogic = new TrainerLogic(trainerrepo);
 
+            //non-croud
+            var q5 = Trainerlogic.GetPlayersOfTrainer_id(4);
             var q4 = Teamlogic.GetGoalKeepersInTeam("Német");
-            
             var q2 = Playerlogic.GetTeamName("Németh Kristof");
             Playerlogic.Create(new Player() { Id = 300, Name = "Carlos", Post = "GK", TeamId = 1 });
             var q3 = Playerlogic.ReadAll();

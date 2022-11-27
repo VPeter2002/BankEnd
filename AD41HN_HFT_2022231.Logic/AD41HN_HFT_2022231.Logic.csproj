@@ -9,8 +9,4 @@
     <ProjectReference Include="..\AD41HN_HFT_2022231.Repository\AD41HN_HFT_2022231.Repository.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
 </Project>

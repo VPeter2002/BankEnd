@@ -1,7 +1,7 @@
 ﻿using AD41HN_HFT_2022231.Models;
 using System.Linq;
 
-namespace AD41HN_HFT_2022231.Logic.Classes
+namespace AD41HN_HFT_2022231.Logic.Interfaces
 {
     public interface IPlayerLogic
     {

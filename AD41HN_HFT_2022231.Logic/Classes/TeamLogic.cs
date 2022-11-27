@@ -1,4 +1,5 @@
-﻿using AD41HN_HFT_2022231.Models;
+﻿using AD41HN_HFT_2022231.Logic.Interfaces;
+using AD41HN_HFT_2022231.Models;
 using AD41HN_HFT_2022231.Repository;
 using System;
 using System.Collections.Generic;
@@ -56,7 +57,6 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         public IQueryable GetGoalKeepersInTeam(string teamname)
         {
-            
             return this.repo
                .ReadAll()
                .Where(t => t.Name == teamname).Select(p => p.Players.Where(p => p.Post == "GK"));

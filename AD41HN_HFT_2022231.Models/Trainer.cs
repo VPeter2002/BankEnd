@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AD41HN_HFT_2022231.Models
 {
-    public class Trainer
+    public class Trainer 
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

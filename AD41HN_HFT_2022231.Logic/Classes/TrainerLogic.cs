@@ -1,4 +1,5 @@
-﻿using AD41HN_HFT_2022231.Models;
+﻿using AD41HN_HFT_2022231.Logic.Interfaces;
+using AD41HN_HFT_2022231.Models;
 using AD41HN_HFT_2022231.Repository;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AD41HN_HFT_2022231.Logic.Classes
 {
-    public class TrainerLogic
+    public class TrainerLogic : ITrainerLogic
     {
         IRepository<Trainer> repo;
 
@@ -62,7 +63,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
             }
             return this.repo
                .ReadAll()
-               .Where(t => t.Id == id).Select(t=>t.Team.Players);
+               .Where(t => t.Id == id).Select(t => t.Team.Players);
         }
 
     }
