@@ -6,7 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AD41HN_HFT_2022231.Db.cs\AD41HN_HFT_2022231.Db.cs.csproj" />
+    <ProjectReference Include="..\AD41HN_HFT_2022231.Logic\AD41HN_HFT_2022231.Logic.csproj" />
     <ProjectReference Include="..\AD41HN_HFT_2022231.Models\AD41HN_HFT_2022231.Models.csproj" />
+    <ProjectReference Include="..\AD41HN_HFT_2022231.Repository\AD41HN_HFT_2022231.Repository.csproj" />
   </ItemGroup>
 
 </Project>
