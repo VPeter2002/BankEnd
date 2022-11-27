@@ -16,7 +16,7 @@ namespace AD41HN_HFT_2022231.Models
         public string Name { get; set; }
         [Required]
         public string TeamName { get; set; }
-        public virtual Team team { get; set; }
+        public virtual Team Team { get; set; }
         public Trainer()
         {
 

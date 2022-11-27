@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AD41HN_HFT_2022231.Logic.Classes
 {
-    public class PlayerLogic
+    public class PlayerLogic : IPlayerLogic
     {
         IRepository<Player> repo;
 
@@ -60,20 +60,20 @@ namespace AD41HN_HFT_2022231.Logic.Classes
                .ReadAll()
                .Where(t => t.Post == post);
         }
-        public IQueryable GetTeamName(int Playername)
+        public IQueryable GetTeamName(string Playername)
         {
-            return this.repo.ReadAll().Where(t => t.Name.Equals(Playername)).Select(t=>t.Team.Name);
+            return this.repo.ReadAll().Where(t => t.Name.Equals(Playername)).Select(t => t.Team.Name);
         }
         public IQueryable GetTrainerName(int Playername)
         {
-            return this.repo.ReadAll().Where(t => t.Name.Equals(Playername)).Select(t=>t.Team.Trainer.Name);
+            return this.repo.ReadAll().Where(t => t.Name.Equals(Playername)).Select(t => t.Team.Trainer.Name);
         }
-        
 
 
-       
 
-        
+
+
+
 
 
     }

@@ -20,14 +20,15 @@ namespace AD41HN_HFT_2022231.Db
         public FWCDbContext()
         {
             this.Database.EnsureCreated();
+            
         }
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
 
             if (!builder.IsConfigured)
             {
-                //builder.UseInMemoryDatabase("db");
-                builder.UseSqlServer(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\Database1.mdf; Integrated Security = True");
+                builder.UseInMemoryDatabase("db");
+                //builder.UseSqlServer(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\Database1.mdf; Integrated Security = True");
 
                 builder.UseLazyLoadingProxies();
             }
@@ -88,7 +89,7 @@ namespace AD41HN_HFT_2022231.Db
 
             builder.Entity<Team>(t => t
                             .HasOne(t => t.Trainer)
-                            .WithOne(t => t.team)
+                            .WithOne(t => t.Team)
                             .HasForeignKey<Team>(t => t.TrainerId));
 
 

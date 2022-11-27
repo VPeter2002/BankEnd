@@ -1,5 +1,7 @@
-﻿using AD41HN_HFT_2022231.Db;
+﻿
+using AD41HN_HFT_2022231.Db;
 using AD41HN_HFT_2022231.Logic.Classes;
+using AD41HN_HFT_2022231.Models;
 using AD41HN_HFT_2022231.Repository;
 using AD41HN_HFT_2022231.Repository.ModelRepositories;
 using Microsoft.EntityFrameworkCore;
@@ -17,8 +19,18 @@ namespace AD41HN_HFT_2022231.Client
             var q1 = ctx.Trainers;
 
             var playerrepo = new PlayerRepository(ctx);
+            var teamrepo = new TeamRepository(ctx);
+
 
             var Playerlogic = new PlayerLogic(playerrepo);
+            var Teamlogic = new TeamLogic(teamrepo);
+
+            var q4 = Teamlogic.GetGoalKeepersInTeam("Német");
+            
+            var q2 = Playerlogic.GetTeamName("Németh Kristof");
+            Playerlogic.Create(new Player() { Id = 300, Name = "Carlos", Post = "GK", TeamId = 1 });
+            var q3 = Playerlogic.ReadAll();
+            ;
 
             foreach (var item in q1)
             {
