@@ -1,9 +1,4 @@
-﻿
-
-using AD41HN_HFT_2022231.Logic.Classes;
-using AD41HN_HFT_2022231.Models;
-using AD41HN_HFT_2022231.Repository;
-using AD41HN_HFT_2022231.Repository.ModelRepositories;
+﻿using AD41HN_HFT_2022231.Models;
 using ConsoleTools;
 using Microsoft.EntityFrameworkCore;
 using MovieDbApp.Client;
