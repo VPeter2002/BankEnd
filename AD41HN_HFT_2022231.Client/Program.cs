@@ -1,5 +1,5 @@
 ﻿
-using AD41HN_HFT_2022231.Db;
+
 using AD41HN_HFT_2022231.Logic.Classes;
 using AD41HN_HFT_2022231.Models;
 using AD41HN_HFT_2022231.Repository;
@@ -64,7 +64,7 @@ namespace AD41HN_HFT_2022231.Client
         {
             
 
-            rest = new RestService("http://localhost:5218//", "db");
+            rest = new RestService("http://localhost:5218/", "db");
 
             var playerSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Player"))
