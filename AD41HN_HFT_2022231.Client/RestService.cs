@@ -56,99 +56,99 @@ namespace MovieDbApp.Client
 
         }
 
-        //    public List<T> Get<T>(string endpoint)
-        //    {
-        //        List<T> items = new List<T>();
-        //        HttpResponseMessage response = client.GetAsync(endpoint).GetAwaiter().GetResult();
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            items = response.Content.ReadAsAsync<List<T>>().GetAwaiter().GetResult();
-        //        }
-        //        else
-        //        {
-        //            var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
-        //            throw new ArgumentException(error.Msg);
-        //        }
-        //        return items;
-        //    }
+        public List<T> Get<T>(string endpoint)
+        {
+            List<T> items = new List<T>();
+            HttpResponseMessage response = client.GetAsync(endpoint).GetAwaiter().GetResult();
+            if (response.IsSuccessStatusCode)
+            {
+                items = response.Content.ReadAsAsync<List<T>>().GetAwaiter().GetResult();
+            }
+            else
+            {
+                var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
+                throw new ArgumentException(error.Msg);
+            }
+            return items;
+        }
 
-        //    public T GetSingle<T>(string endpoint)
-        //    {
-        //        T item = default(T);
-        //        HttpResponseMessage response = client.GetAsync(endpoint).GetAwaiter().GetResult();
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            item = response.Content.ReadAsAsync<T>().GetAwaiter().GetResult();
-        //        }
-        //        else
-        //        {
-        //            var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
-        //            throw new ArgumentException(error.Msg);
-        //        }
-        //        return item;
-        //    }
+        public T GetSingle<T>(string endpoint)
+        {
+            T item = default(T);
+            HttpResponseMessage response = client.GetAsync(endpoint).GetAwaiter().GetResult();
+            if (response.IsSuccessStatusCode)
+            {
+                item = response.Content.ReadAsAsync<T>().GetAwaiter().GetResult();
+            }
+            else
+            {
+                var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
+                throw new ArgumentException(error.Msg);
+            }
+            return item;
+        }
 
-        //    public T Get<T>(int id, string endpoint)
-        //    {
-        //        T item = default(T);
-        //        HttpResponseMessage response = client.GetAsync(endpoint + "/" + id.ToString()).GetAwaiter().GetResult();
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            item = response.Content.ReadAsAsync<T>().GetAwaiter().GetResult();
-        //        }
-        //        else
-        //        {
-        //            var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
-        //            throw new ArgumentException(error.Msg);
-        //        }
-        //        return item;
-        //    }
+        public T Get<T>(int id, string endpoint)
+        {
+            T item = default(T);
+            HttpResponseMessage response = client.GetAsync(endpoint + "/" + id.ToString()).GetAwaiter().GetResult();
+            if (response.IsSuccessStatusCode)
+            {
+                item = response.Content.ReadAsAsync<T>().GetAwaiter().GetResult();
+            }
+            else
+            {
+                var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
+                throw new ArgumentException(error.Msg);
+            }
+            return item;
+        }
 
-        //    public void Post<T>(T item, string endpoint)
-        //    {
-        //        HttpResponseMessage response =
-        //            client.PostAsJsonAsync(endpoint, item).GetAwaiter().GetResult();
+        public void Post<T>(T item, string endpoint)
+        {
+            HttpResponseMessage response =
+                client.PostAsJsonAsync(endpoint, item).GetAwaiter().GetResult();
 
-        //        if (!response.IsSuccessStatusCode)
-        //        {
-        //            var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
-        //            throw new ArgumentException(error.Msg);
-        //        }
-        //        response.EnsureSuccessStatusCode();
-        //    }
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
+                throw new ArgumentException(error.Msg);
+            }
+            response.EnsureSuccessStatusCode();
+        }
 
-        //    public void Delete(int id, string endpoint)
-        //    {
-        //        HttpResponseMessage response =
-        //            client.DeleteAsync(endpoint + "/" + id.ToString()).GetAwaiter().GetResult();
+        public void Delete(int id, string endpoint)
+        {
+            HttpResponseMessage response =
+                client.DeleteAsync(endpoint + "/" + id.ToString()).GetAwaiter().GetResult();
 
-        //        if (!response.IsSuccessStatusCode)
-        //        {
-        //            var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
-        //            throw new ArgumentException(error.Msg);
-        //        }
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
+                throw new ArgumentException(error.Msg);
+            }
 
-        //        response.EnsureSuccessStatusCode();
-        //    }
+            response.EnsureSuccessStatusCode();
+        }
 
-        //    public void Put<T>(T item, string endpoint)
-        //    {
-        //        HttpResponseMessage response =
-        //            client.PutAsJsonAsync(endpoint, item).GetAwaiter().GetResult();
+        public void Put<T>(T item, string endpoint)
+        {
+            HttpResponseMessage response =
+                client.PutAsJsonAsync(endpoint, item).GetAwaiter().GetResult();
 
-        //        if (!response.IsSuccessStatusCode)
-        //        {
-        //            var error = response.Content.ReadAsAsync<RestExceptionInfo>()
-        //                .GetAwaiter()
-        //                .GetResult();
-        //            throw new ArgumentException(error.Msg);
-        //        }
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = response.Content.ReadAsAsync<RestExceptionInfo>()
+                    .GetAwaiter()
+                    .GetResult();
+                throw new ArgumentException(error.Msg);
+            }
 
-        //        response.EnsureSuccessStatusCode();
-        //    }
+            response.EnsureSuccessStatusCode();
+        }
 
-        //}
-        public class RestExceptionInfo
+    }
+    public class RestExceptionInfo
         {
             public RestExceptionInfo()
             {
