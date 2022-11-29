@@ -91,6 +91,7 @@ namespace AD41HN_HFT_2022231.Client
                 .Add("Trainer", () => trainerSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
 
+            Console.WriteLine("adf");
             menu.Show();
 
 
