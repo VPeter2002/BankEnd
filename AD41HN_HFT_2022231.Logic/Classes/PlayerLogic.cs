@@ -20,7 +20,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         public void Create(Player item)
         {
-            if (item.TeamId > 4)
+            if (item.TeamId < 0)
             {
                 throw new ArgumentException("Invalid TeamId...");
             }

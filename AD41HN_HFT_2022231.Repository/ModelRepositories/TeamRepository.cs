@@ -28,5 +28,6 @@ namespace AD41HN_HFT_2022231.Repository.ModelRepositories
             }
             ctx.SaveChanges();
         }
+        
     }
 }
