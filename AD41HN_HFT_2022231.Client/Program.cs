@@ -12,6 +12,7 @@ namespace AD41HN_HFT_2022231.Client
     internal class Program
     {
         static RestService rest;
+        
         static void Create(string entity)
         {
             if (entity == "Player")
