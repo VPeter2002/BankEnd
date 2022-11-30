@@ -1,7 +1,9 @@
 ﻿using AD41HN_HFT_2022231.Logic.Interfaces;
 using AD41HN_HFT_2022231.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -50,5 +52,12 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
         {
             this.logic.Delete(id);
         }
+
+        //[HttpGet("{id}")]
+        //public IEnumerable<Team> GetTeamOfTrainer_id(int id)
+        //{
+
+        //    return this.logic.GetTeamOfTrainer_id(id);
+        //}
     }
 }

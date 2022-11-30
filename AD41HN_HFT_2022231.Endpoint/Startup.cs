@@ -39,7 +39,7 @@ namespace AD41HN_HFT_2022231.Endpoint
             services.AddTransient<ITrainerLogic, TrainerLogic>();
 
             services.AddControllers();
-            object value = services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AD41HN_HFT_2022231.Endpoint", Version = "v1" });
             });

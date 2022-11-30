@@ -1,4 +1,6 @@
 ﻿using AD41HN_HFT_2022231.Models;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AD41HN_HFT_2022231.Logic.Interfaces
@@ -7,11 +9,11 @@ namespace AD41HN_HFT_2022231.Logic.Interfaces
     {
         void Create(Player item);
         void Delete(int id);
-        IQueryable GetPlayersOnThisPost(string post);
-        IQueryable GetTeamName(string Playername);
-        IQueryable GetTrainerName(int Playername);
+        IEnumerable GetPlayersOnThisPost(string post);
+        IEnumerable GetTeamName(string Playername);
+        IEnumerable GetTrainerName(string Playername);
         Player Read(int id);
-        IQueryable<Player> ReadAll();
+        IEnumerable<Player> ReadAll();
         void Update(Player item);
     }
 }

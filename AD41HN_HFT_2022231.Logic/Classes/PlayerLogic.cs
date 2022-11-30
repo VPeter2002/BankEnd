@@ -2,6 +2,7 @@
 using AD41HN_HFT_2022231.Models;
 using AD41HN_HFT_2022231.Repository;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,7 +44,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         }
 
-        public IQueryable<Player> ReadAll()
+        public IEnumerable<Player> ReadAll()
         {
             return this.repo.ReadAll();
         }
@@ -55,17 +56,17 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         //non cruds
 
-        public IQueryable GetPlayersOnThisPost(string post)
+        public IEnumerable GetPlayersOnThisPost(string post)
         {
             return this.repo
                .ReadAll()
                .Where(t => t.Post == post);
         }
-        public IQueryable GetTeamName(string Playername)
+        public IEnumerable GetTeamName(string Playername)
         {
             return this.repo.ReadAll().Where(t => t.Name.Equals(Playername)).Select(t => t.Team.Name);
         }
-        public IQueryable GetTrainerName(int Playername)
+        public IEnumerable GetTrainerName(string Playername)
         {
             return this.repo.ReadAll().Where(t => t.Name.Equals(Playername)).Select(t => t.Team.Trainer.Name);
         }

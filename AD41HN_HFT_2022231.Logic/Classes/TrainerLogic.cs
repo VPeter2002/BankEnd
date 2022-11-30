@@ -43,7 +43,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         }
 
-        public IQueryable<Trainer> ReadAll()
+        public IEnumerable<Trainer> ReadAll()
         {
             return this.repo.ReadAll();
         }
@@ -55,15 +55,15 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         //non cruds
 
-        public IQueryable GetPlayersOfTrainer_id(int id)
+        public IEnumerable<Team> GetTeamOfTrainer_id(int id)
         {
-            if (id > 4)
+            if (id < 0)
             {
-                throw new ArgumentException("Id is not valid, too big");
+                throw new ArgumentException("Id is not valid");
             }
             return this.repo
                .ReadAll()
-               .Where(t => t.Id == id).Select(t => t.Team.Players);
+               .Where(t => t.Id == id).Select(t => t.Team/*.Players*/);
         }
 
     }

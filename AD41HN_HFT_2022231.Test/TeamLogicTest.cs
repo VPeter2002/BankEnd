@@ -28,17 +28,33 @@ namespace AD41HN_HFT_2022231.Test
                         new Player() {Id=2, Name="Attila Szalai", TeamId = 1, Post="DF"},
                         new Player() {Id=3, Name="Dominik Szoboszla", TeamId = 1, Post="MF"},
                         new Player() {Id=6, Name="Ádám Nagy", TeamId = 1, Post="MF"} } },
-                        new Team("Spanyol"){Id=2,TrainerId=2},
+
+                        new Team("Spanyol"){Id=2,TrainerId=2,
+                        Players={ new Player() {Id=1, Name="Németh Kristof", TeamId = 1, Post="MF"},
+                        new Player() {Id=2, Name="Attila Szalai", TeamId = 1, Post="DF"},
+                        new Player() {Id=3, Name="Dominik Szoboszla", TeamId = 1, Post="MF"} } },
+
                         new Team("Olasz"){Id=3,TrainerId=3},
             }.AsQueryable()) ;
             teamLogic = new TeamLogic(mockTeamRepo.Object);
         }
 
+        // non-croud
         [Test]
         public void GetGoalKeepersInTeamTest()
         {
-
+            var result = teamLogic.GetGoalKeepersInTeam("Magyar");
+            Assert.IsNotNull(result);
         }
+        [Test]
+        public void GetGoalKeepersInTeamTestWithNull()
+        {
+            var result = teamLogic.GetGoalKeepersInTeam("Spanyol");
+            Assert.IsEmpty(result);
+        }
+
+        //croud
+        
 
 
     }

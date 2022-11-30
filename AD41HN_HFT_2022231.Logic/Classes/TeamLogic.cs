@@ -2,6 +2,7 @@
 using AD41HN_HFT_2022231.Models;
 using AD41HN_HFT_2022231.Repository;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,7 +44,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         }
 
-        public IQueryable<Team> ReadAll()
+        public IEnumerable<Team> ReadAll()
         {
             return this.repo.ReadAll();
         }
@@ -55,7 +56,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         //non cruds
 
-        public IQueryable GetGoalKeepersInTeam(string teamname)
+        public IEnumerable GetGoalKeepersInTeam(string teamname)
         {
             return this.repo
                .ReadAll()

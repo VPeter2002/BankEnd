@@ -20,13 +20,41 @@ namespace AD41HN_HFT_2022231.Client
                 string name = Console.ReadLine();
                 rest.Post(new Player() { Name = name }, "player");
             }
+            else if (entity=="Team")
+            {
+                Console.Write("Enter Team Name: ");
+                string name = Console.ReadLine();
+                rest.Post(new Player() { Name = name }, "team");
+            }
+            else
+            {
+                Console.Write("Enter Trainer Name: ");
+                string name = Console.ReadLine();
+                rest.Post(new Player() { Name = name }, "trainer");
+            }
         }
         static void List(string entity)
         {
             if (entity == "Player")
             {
-                List<Player> actors = rest.Get<Player>("player");
-                foreach (var item in actors)
+                List<Player> Player = rest.Get<Player>("player");
+                foreach (var item in Player)
+                {
+                    Console.WriteLine(item.Id + ": " + item.Name);
+                }
+            }
+            else if (entity == "Team")
+            {
+                List<Team> Teams = rest.Get<Team>("team");
+                foreach (var item in Teams)
+                {
+                    Console.WriteLine(item.Id + ": " + item.Name);
+                }
+            }
+            else
+            {
+                List<Trainer> Trainers = rest.Get<Trainer>("trainer");
+                foreach (var item in Trainers)
                 {
                     Console.WriteLine(item.Id + ": " + item.Name);
                 }
@@ -39,11 +67,31 @@ namespace AD41HN_HFT_2022231.Client
             {
                 Console.Write("Enter Player's id to update: ");
                 int id = int.Parse(Console.ReadLine());
-                Player one = rest.Get<Player>(id, "actor");
+                Player one = rest.Get<Player>(id, "player");
                 Console.Write($"New name [old: {one.Name}]: ");
                 string name = Console.ReadLine();
                 one.Name = name;
                 rest.Put(one, "player");
+            }
+            else if (entity=="Team")
+            {
+                Console.Write("Enter Team's id to update: ");
+                int id = int.Parse(Console.ReadLine());
+                Team one = rest.Get<Team>(id, "team");
+                Console.Write($"New name [old: {one.Name}]: ");
+                string name = Console.ReadLine();
+                one.Name = name;
+                rest.Put(one, "team");
+            }
+            else
+            {
+                Console.Write("Enter Trainer's id to update: ");
+                int id = int.Parse(Console.ReadLine());
+                Trainer one = rest.Get<Trainer>(id, "trainer");
+                Console.Write($"New name [old: {one.Name}]: ");
+                string name = Console.ReadLine();
+                one.Name = name;
+                rest.Put(one, "trainer");
             }
         }
         static void Delete(string entity)
@@ -54,12 +102,25 @@ namespace AD41HN_HFT_2022231.Client
                 int id = int.Parse(Console.ReadLine());
                 rest.Delete(id, "player");
             }
+            else if (entity == "Team")
+            {
+                Console.Write("Enter Team's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "team");
+            }
+            else
+            {
+                Console.Write("Enter Trainer's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "trainer");
+            }
         }
+        
         static void Main(string[] args)
         {
             
 
-            rest = new RestService("http://localhost:5218/", "db");
+            rest = new RestService("http://localhost:5218/");
 
             var playerSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Player"))
@@ -91,7 +152,7 @@ namespace AD41HN_HFT_2022231.Client
                 .Add("Trainer", () => trainerSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
 
-            Console.WriteLine("adf");
+            
             menu.Show();
 
 
