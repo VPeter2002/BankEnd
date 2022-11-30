@@ -20,6 +20,10 @@ namespace AD41HN_HFT_2022231.Models
         [JsonIgnore]
 
         public virtual Trainer Trainer { get; set; }
+        public Team()
+        {
+
+        }
         public Team(string name)
         {
             Name = name;

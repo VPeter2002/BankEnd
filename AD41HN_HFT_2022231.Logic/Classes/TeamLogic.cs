@@ -21,7 +21,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         public void Create(Team item)
         {
-            if (item.Name == null)
+            if (item.Name.Length <2)
             {
                 throw new ArgumentException("Invalid TeamId...");
             }

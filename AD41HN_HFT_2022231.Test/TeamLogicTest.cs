@@ -46,15 +46,32 @@ namespace AD41HN_HFT_2022231.Test
             var result = teamLogic.GetGoalKeepersInTeam("Magyar");
             Assert.IsNotNull(result);
         }
-        [Test]
-        public void GetGoalKeepersInTeamTestWithNull()
-        {
-            var result = teamLogic.GetGoalKeepersInTeam("Spanyol");
-            Assert.IsEmpty(result);
-        }
 
         //croud
-        
+        [Test]
+        public void CreateTest()
+        {
+            Team team = new Team("Fradi");
+            teamLogic.Create(team);
+            mockTeamRepo.Verify(x => x.Create(team), Times.Once);
+        }
+
+        [Test]
+        public void CreateTestWithNoResult()
+        {
+            Team team = new Team("A");
+            try
+            {
+                teamLogic.Create(team);
+
+            }
+            catch 
+            {
+
+                
+            }
+            mockTeamRepo.Verify(x => x.Create(team), Times.Never);
+        }
 
 
     }

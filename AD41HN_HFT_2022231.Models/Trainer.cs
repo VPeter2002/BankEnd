@@ -15,7 +15,7 @@ namespace AD41HN_HFT_2022231.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        [Required]
+        
         public string TeamName { get; set; }
         [JsonIgnore]
 
