@@ -45,9 +45,9 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
         }
         [HttpGet("{Playername}")]
 
-        public IEnumerable GetTrainerName(Player Playername)
+        public IEnumerable GetTeamId(string Playername)
         {
-            return this.playerlogic.GetTrainerName(Playername);
+            return this.playerlogic.GetTeamId(Playername);
         }
         [HttpGet("{teamname}")]
 

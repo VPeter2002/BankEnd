@@ -75,6 +75,15 @@ namespace AD41HN_HFT_2022231.Logic.Classes
         //    return this.repo.ReadAll().Where(t => t.Name.Equals(Playername)).Select(t => t.Team.Trainer.Name);
         //}
 
+        public IEnumerable GetTeamId(string Playername)
+        {
+            if (Playername == null)
+            {
+                throw new ArgumentException(" has no team");
+            }
+            return this.repo.ReadAll().Where(t => t.Name.Equals(Playername)).Select(t=>t.TeamId);
+        }
+
 
 
 

@@ -11,7 +11,7 @@ namespace AD41HN_HFT_2022231.Logic.Interfaces
         void Delete(int id);
         IEnumerable GetPlayersOnThisPost(string post);
         IEnumerable GetTeamName(string Playername);
-        IEnumerable GetTrainerName(Player Playername);
+        IEnumerable GetTeamId(string Playername);
         Player Read(int id);
         IEnumerable<Player> ReadAll();
         void Update(Player item);
