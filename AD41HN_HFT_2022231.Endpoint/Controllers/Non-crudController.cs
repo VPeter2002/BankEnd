@@ -16,8 +16,22 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
         ITeamLogic teamlogic;
         ITrainerLogic trainerlogic;
 
-        [HttpGet("{post}")]
 
+        public Non_crudController(IPlayerLogic playerLogic)
+        {
+            this.playerlogic = playerLogic;
+        }
+        //public Non_crudController(ITeamLogic teamlogic)
+        //{
+        //    this.teamlogic = teamlogic;
+        //}
+        //public Non_crudController(ITrainerLogic trainerlogic)
+        //{
+        //    this.trainerlogic = trainerlogic;
+        //}
+
+        [HttpGet("{post}")]
+       
         public IEnumerable GetPlayersOnThisPost(string post)
         {
             return this.playerlogic.GetPlayersOnThisPost(post);
