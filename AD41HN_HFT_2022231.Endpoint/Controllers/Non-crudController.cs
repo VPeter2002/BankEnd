@@ -17,9 +17,11 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
         ITrainerLogic trainerlogic;
 
 
-        public Non_crudController(IPlayerLogic playerLogic)
+        public Non_crudController(IPlayerLogic playerLogic, ITrainerLogic trainerlogic, ITeamLogic teamlogic)
         {
             this.playerlogic = playerLogic;
+            this.teamlogic = teamlogic;
+            this.trainerlogic = trainerlogic;
         }
         //public Non_crudController(ITeamLogic teamlogic)
         //{
