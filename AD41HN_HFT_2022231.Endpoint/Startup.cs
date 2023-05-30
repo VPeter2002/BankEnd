@@ -1,4 +1,5 @@
 
+using AD41HN_HFT_2022231.Endpoint.Services;
 using AD41HN_HFT_2022231.Logic.Classes;
 using AD41HN_HFT_2022231.Logic.Interfaces;
 using AD41HN_HFT_2022231.Models;
@@ -37,6 +38,7 @@ namespace AD41HN_HFT_2022231.Endpoint
             services.AddTransient<IPlayerLogic, PlayerLogic>();
             services.AddTransient<ITeamLogic, TeamLogic>();
             services.AddTransient<ITrainerLogic, TrainerLogic>();
+            services.AddSignalR();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -64,6 +66,12 @@ namespace AD41HN_HFT_2022231.Endpoint
                 await context.Response.WriteAsJsonAsync(response);
             }));
 
+            app.UseCors(x => x
+               .AllowCredentials()
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .WithOrigins("http://localhost:14957"));
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -71,6 +79,7 @@ namespace AD41HN_HFT_2022231.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
