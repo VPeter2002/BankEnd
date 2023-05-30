@@ -60,7 +60,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
         {
             return this.repo
                .ReadAll()
-               .Where(t => t.Name == teamname).Select(p => p.Players.Where(p => p.Post == "GK"));
+               .Where(t => t.Name == teamname).Select(p => p.Id);
         }
 
     }
