@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Team UI</title>
+    <link rel="stylesheet" href="style.css"
+</head>
+<body>
+
+    <h1>Team catalog</h1>
+
+
+    <div id="formdiv">
+        <label>Team Name</label>
+        <input type="text" id="name" />
+        <button type="button" onclick="create()">Add Team</button>
+    </div>
+    <div id="updateformdiv">
+        <label>Team name to update</label>
+        <input type="text" id="nametoupdate"/>
+        <button type="button" onclick="update()">Update Team</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="teamsrc.js"></script>
+</body>
+</html>

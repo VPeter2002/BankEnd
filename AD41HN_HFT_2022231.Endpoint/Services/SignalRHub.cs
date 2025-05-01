@@ -11,7 +11,6 @@ namespace AD41HN_HFT_2022231.Endpoint.Services
             Clients.Caller.SendAsync("Connected", Context.ConnectionId);
             return base.OnConnectedAsync();
         }
-
         public override Task OnDisconnectedAsync(Exception exception)
         {
             Clients.Caller.SendAsync("Disconnected", Context.ConnectionId);

@@ -8,9 +8,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace AD41HN_HFT_2022231.WpfClient
@@ -27,7 +30,6 @@ namespace AD41HN_HFT_2022231.WpfClient
         }
 
         static RestService r;
-
 
         //Players......................................................
         #region
@@ -57,6 +59,7 @@ namespace AD41HN_HFT_2022231.WpfClient
         }
         #endregion
         //Players......................................................
+
         //Teams........................................................
         #region
         public RestCollection<Team> Teams { get; set; }
@@ -86,6 +89,7 @@ namespace AD41HN_HFT_2022231.WpfClient
         }
         #endregion
         //Teams........................................................
+
         //Trainers.....................................................
         #region
         public RestCollection<Trainer> Trainers { get; set; }
@@ -116,37 +120,30 @@ namespace AD41HN_HFT_2022231.WpfClient
         #endregion
         //Trainers.....................................................
 
-        public ICommand Player1Command { get; set; }
-        public ICommand Player2Command { get; set; }
-        public ICommand Player3Command { get; set; }
-        public ICommand TeamCommand { get; set; }
-        public ICommand TrainerCommand { get; set; }
+        //Non Crud.....................................................
+        #region
 
-        public Player Player1collection { get; set; }
-        public ObservableCollection<Player> Player1Obscollection { get; set; }
+        public ObservableCollection<Player> NonCrudObs = new ObservableCollection<Player>();
 
-        public List<Player> Player2collection { get; set; }
-        public ObservableCollection<Player> Playe2Obscollection { get; set; }
+        public List<Player> NonCrudPlayers1list { get; set; }
+        public List<Trainer> NonCrudTrainers { get; set; }
+        public List<Team> NonCrudTeam { get; set; }
 
-        public List<Player> Player3collection { get; set; }
-        public ObservableCollection<Player> Player3Obscollection { get; set; }
-
-        public List<Team> Teamcollection { get; set; }
-        public ObservableCollection<Team> TeamObscollection { get; set; }
-
-        public List<Trainer> Trainercollection { get; set; }
-        public ObservableCollection<Trainer> TrainerObscollection { get; set; }
+        public ICommand GetGoolKeepers { get; set; }
+        public ICommand GetHungarianPlayers { get; set; }
+        public ICommand GetEnglishTrainers { get; set; }
+        public ICommand GetTeamIds { get; set; }
+        public ICommand GetGermanyPlayers { get; set; }
 
 
-
-
-
+        #endregion
+        //Non Crud.....................................................
 
         public MainWindowViewModel()
         {
             if (!IsInDesignMode)
             {
-                //Players......................................................
+                //Players..............................................................
                 #region
                 Players = new RestCollection<Player>("http://localhost:5218/", "player", "hub");
                 CreatePlayerCommand = new RelayCommand(() =>
@@ -176,6 +173,7 @@ namespace AD41HN_HFT_2022231.WpfClient
                 SelectedPlayer = new Player();
                 #endregion
                 //Players..............................................................
+
                 //Teams................................................................
                 #region
                 Teams = new RestCollection<Team>("http://localhost:5218/", "team", "hub");
@@ -183,9 +181,9 @@ namespace AD41HN_HFT_2022231.WpfClient
                 {
                     Teams.Add(new Team()
                     {
-                        Name = SelectedTeam.Name,
-                    }) ;
-                    ;
+                        Name = SelectedTeam.Name
+                    });
+                    
                 });
                 //
                 DeleteTeamCommand = new RelayCommand(() =>
@@ -207,6 +205,7 @@ namespace AD41HN_HFT_2022231.WpfClient
                 SelectedTeam = new Team();
                 #endregion
                 //Teams................................................................
+
                 //Trainers.............................................................
                 #region
                 Trainers = new RestCollection<Trainer>("http://localhost:5218/", "trainer", "hub");
@@ -239,20 +238,65 @@ namespace AD41HN_HFT_2022231.WpfClient
                 #endregion
                 //Trainers.............................................................
 
+                //Non Crud.............................................................
+                #region
                 r = new RestService("http://localhost:5218/");
 
-                // player1
-                Player1Obscollection = new ObservableCollection<Player>();
-                Player1Command = new RelayCommand(() =>
+                NonCrudObs = new ObservableCollection<Player>();
+
+                GetGoolKeepers = new RelayCommand(() =>
                 {
-                    Player1Obscollection.Clear();
-                    int id = SelectedPlayer.Id;
-                    Player1collection = r.Get<Player>(id, "Player");
+                    NonCrudObs.Clear();
+                    string personname = SelectedPlayer.Name;
+                    NonCrudPlayers1list = r.Get<Player>("Non_crud/GetGKs");
+                    foreach (var item in NonCrudPlayers1list)
+                    {
+                        NonCrudObs.Add(item);
+                    }
                 });
 
-
-
-               
+                GetHungarianPlayers = new RelayCommand(() =>
+                {
+                    NonCrudObs.Clear();
+                    string personname = SelectedPlayer.Name;
+                    NonCrudPlayers1list = r.Get<Player>("Non_crud/GetHun");
+                    foreach (var item in NonCrudPlayers1list)
+                    {
+                        NonCrudObs.Add(item);
+                    }
+                });
+                GetEnglishTrainers = new RelayCommand(() =>
+                {
+                    NonCrudObs.Clear();
+                    string personname = SelectedPlayer.Name;
+                    NonCrudPlayers1list = r.Get<Player>("Non_crud/GetEng");
+                    foreach (var item in NonCrudPlayers1list)
+                    {
+                        NonCrudObs.Add(item);
+                    }
+                });
+                GetTeamIds = new RelayCommand(() =>
+                {
+                    NonCrudObs.Clear();
+                    string personname = SelectedPlayer.Name;
+                    NonCrudPlayers1list = r.Get<Player>("Non_crud/GetTeamIds");
+                    foreach (var item in NonCrudPlayers1list)
+                    {
+                        NonCrudObs.Add(item);
+                    }
+                });
+                GetGermanyPlayers = new RelayCommand(() =>
+                {
+                    NonCrudObs.Clear();
+                    string personname = SelectedPlayer.Name;
+                    NonCrudTrainers = r.Get<Trainer>("Non_crud/GetGermanyTrainers");
+                    foreach (var item in NonCrudPlayers1list)
+                    {
+                        NonCrudObs.Add(item);
+                    }
+                });
+                #endregion
+                //Non Crud.............................................................
             }
         }
     }

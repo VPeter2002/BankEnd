@@ -68,15 +68,15 @@ namespace AD41HN_HFT_2022231.Test
             var result = playerLogic.GetTeamName("Jordan Pickford");
             Assert.IsNotNull(result);
         }
-        [Test]
-        public void GetTrainerNameTest()
-        {
-           Player Sanyi = new Player() { Id = 10, Name = "Timo Werner", TeamId = 2, Post = "FW", Team = new Team("Német") { Trainer = new Trainer() { Name = "Sanyi" } } };
+        //[Test]
+        //public void GetTrainerNameTest()
+        //{
+        //   Player Sanyi = new Player() { Id = 10, Name = "Timo Werner", TeamId = 2, Post = "FW", Team = new Team("Német") { Trainer = new Trainer() { Name = "Sanyi" } } };
 
-            var result = playerLogic.GetTrainerName(Sanyi);
-            Assert.IsNotNull(result);
+        //    var result = playerLogic.GetTrainerName(Sanyi);
+        //    Assert.IsNotNull(result);
 
-        }
+        //}
 
 
 

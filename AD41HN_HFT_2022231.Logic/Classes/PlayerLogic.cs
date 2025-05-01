@@ -21,7 +21,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         public void Create(Player item)
         {
-            if (item.TeamId < 0 )
+            if (item.TeamId < 0)
             {
                 throw new ArgumentException("Invalid TeamId...");
             }
@@ -81,7 +81,20 @@ namespace AD41HN_HFT_2022231.Logic.Classes
             {
                 throw new ArgumentException(" has no team");
             }
-            return this.repo.ReadAll().Where(t => t.Name.Equals(Playername)).Select(t=>t.TeamId);
+            return this.repo.ReadAll().Where(t => t.Name.Equals(Playername)).Select(t => t.TeamId);
+        }
+
+        public IEnumerable<Player> GetGKs()
+        {
+            return this.repo.ReadAll().Where(t=> t.Post.Equals("GK"));
+        }
+         public IEnumerable<Player> GetHun()
+        {
+            return this.repo.ReadAll().Where(t=> t.TeamId==1);
+        }
+        public IEnumerable<Player> GetEng()
+        {
+            return this.repo.ReadAll().Where(t => t.TeamId == 3);
         }
 
 

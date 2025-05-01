@@ -71,9 +71,9 @@
                     <StackPanel Grid.Column="1" >
                         <Label Content="Name" Background="LightBlue" Padding="10"/>
                         <TextBox Text="{Binding SelectedTrainer.Name}" Padding="10" Margin="0,0,0,31"/>
-                        <Button Content="Create Team" Command="{Binding CreateTrainerCommand}" Margin="10" Padding="10" />
-                        <Button Content="Delete Team" Command="{Binding DeleteTrainerCommand}" Margin="10" Padding="10" />
-                        <Button Content="Update Team" Command="{Binding UpdateTrainerCommand}" Margin="10" Padding="10" />
+                        <Button Content="Create Trainer" Command="{Binding CreateTrainerCommand}" Margin="10" Padding="10" />
+                        <Button Content="Delete Trainer" Command="{Binding DeleteTrainerCommand}" Margin="10" Padding="10" />
+                        <Button Content="Update Trainer" Command="{Binding UpdateTrainerCommand}" Margin="10" Padding="10" />
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -83,7 +83,7 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <ListBox ItemsSource="{Binding Trainers}" SelectedItem="{Binding SelectedTrainer}">
+                    <ListBox ItemsSource="{Binding NonCrudObs}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Label Content="{Binding Name }"/>
@@ -91,11 +91,13 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <StackPanel Grid.Column="1" >
-                        <Label Content="Name" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedTrainer.Name}" Padding="10" Margin="0,0,0,31"/>
-                        <Button Content="Create Team" Command="{Binding CreateTrainerCommand}" Margin="10" Padding="10" />
-                        <Button Content="Delete Team" Command="{Binding DeleteTrainerCommand}" Margin="10" Padding="10" />
-                        <Button Content="Update Team" Command="{Binding UpdateTrainerCommand}" Margin="10" Padding="10" />
+                        <!--<Label Content="Name" Background="LightBlue" Padding="10"/>
+                        <TextBox x:Name="txb" Text="" Padding="10" Margin="0,0,0,31"/>-->
+                        <Button Content="GetGoolKeepers" Command="{Binding GetGoolKeepers}" Margin="10" Padding="10" />
+                        <Button Content="GetHungarianPlayers" Command="{Binding GetHungarianPlayers}" Margin="10" Padding="10" />
+                        <Button Content="GetEnglishTrainers" Command="{Binding GetEnglishTrainers}" Margin="10" Padding="10" />
+                        <Button Content="GetTeamIds" Command="{Binding GetTeamIds}" Margin="10" Padding="10" />
+                        <Button Content="GetGermanyPlayers" Command="{Binding GetGermanyPlayers}" Margin="10" Padding="10" />
                     </StackPanel>
                 </Grid>
             </TabItem>

@@ -21,6 +21,7 @@ namespace AD41HN_HFT_2022231.Repository.ModelRepositories
 
         public override void Update(Player item)
         {
+
             var old = Read(item.Id);
             foreach (var prop in old.GetType().GetProperties())
             {

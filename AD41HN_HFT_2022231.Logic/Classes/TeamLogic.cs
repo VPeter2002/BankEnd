@@ -62,6 +62,12 @@ namespace AD41HN_HFT_2022231.Logic.Classes
                .ReadAll()
                .Where(t => t.Name == teamname).Select(p => p.Id);
         }
+        public IEnumerable<Team> GetTeamIds()
+        {
+            return this.repo
+               .ReadAll().Where(t=>t.Id==4);
+               
+        }
 
     }
 }

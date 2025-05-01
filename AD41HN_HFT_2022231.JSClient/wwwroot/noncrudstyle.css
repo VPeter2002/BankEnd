@@ -1,0 +1,58 @@
+﻿﻿table {
+    width: 50%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    background-color: lightblue;
+}
+
+button {
+    margin: 5px;
+    padding: 5px;
+}
+
+#ShowButtons {
+    margin-bottom: 20px;
+}
+
+#noncrudform {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    #noncrudform label, button, input {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    #noncrudform label {
+        font-weight: bolder;
+    }
+
+#form_WhoFlewWithThisShip, #form_AverageShipCostOfAPerson {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#form_WhoFlewWithThisShip, #form_AverageShipCostOfAPerson, label, button, input {
+    margin: 5px;
+    padding: 5px;
+}
+
+table button {
+    padding: 1px;
+}

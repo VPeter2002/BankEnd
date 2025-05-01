@@ -63,7 +63,11 @@ namespace AD41HN_HFT_2022231.Logic.Classes
             }
             return this.repo
                .ReadAll()
-               .Where(t => t.Id == id).Select(t => t.Team/*.Players*/);
+               .Where(t => t.Id == id).Select(t => t.Team);
+        }
+        public IEnumerable<Trainer> GetGermanyTrainers()
+        {
+            return this.repo.ReadAll().Where(t => t.Id == 2);
         }
 
     }

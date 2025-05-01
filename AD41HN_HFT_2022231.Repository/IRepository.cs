@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AD41HN_HFT_2022231.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,7 @@ namespace AD41HN_HFT_2022231.Repository
         void Create(T item);
         void Update(T item);
         void Delete(int id);
+
+        
     }
 }

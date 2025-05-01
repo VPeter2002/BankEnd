@@ -1,4 +1,5 @@
 ﻿
+using AD41HN_HFT_2022231.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,8 @@ namespace AD41HN_HFT_2022231.Repository
 
         public abstract T Read(int id);
         public abstract void Update(T item);
+
+        
 
     }
 }

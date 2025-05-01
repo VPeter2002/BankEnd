@@ -14,6 +14,8 @@ namespace AD41HN_HFT_2022231.JSClient
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,5 +24,8 @@ namespace AD41HN_HFT_2022231.JSClient
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+
+
     }
 }

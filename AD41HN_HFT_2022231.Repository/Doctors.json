@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "Name": "Dr. Kov�cs P�ter",
+    "Password": "Jelszo123!"
+  },
+  {
+    "Id": 2,
+    "Name": "Dr. Szab� Anna",
+    "Password": "Biztonsagos456"
+  },
+  {
+    "Id": 3,
+    "Name": "Dr. T�th L�szl�",
+    "Password": "OrvosPass789"
+  },
+  {
+    "Id": 4,
+    "Name": "Dr. Nagy Katalin",
+    "Password": "Egeszseg2024"
+  },
+  {
+    "Id": 5,
+    "Name": "Dr. Fekete Zolt�n",
+    "Password": "Gyogyito567"
+  },
+  {
+    "Id": 6,
+    "Name": "Dr. Új Orvos",
+    "Password": "TitkosJelszo123"
+  },
+  {
+    "Id": 7,
+    "Name": "asd",
+    "Password": "asd"
+  }
+]

@@ -1,9 +1,15 @@
 ﻿using AD41HN_HFT_2022231.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.FileIO;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AD41HN_HFT_2022231.Repository
@@ -13,6 +19,10 @@ namespace AD41HN_HFT_2022231.Repository
         public DbSet<Player> Players { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
+
+        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<CareSensAirData> CareSensAirDatas { get; set; }
+
 
         public FWCDbContext()
         {
@@ -75,6 +85,80 @@ namespace AD41HN_HFT_2022231.Repository
                 new Trainer (4, "Roberto Mancini", "Olasz")
             };
 
+
+            string jsonFilePath = "C:\\Users\\Peti ROG\\Desktop\\Tanulós\\Diabetes Webapplication Backend\\AD41HN_HFT_2022231.Repository\\Doctors.json"; // A JSON fájl neve
+
+           
+            if (File.Exists(jsonFilePath))
+            {
+                string jsonContent = File.ReadAllText(jsonFilePath);
+                var doctors = JsonConvert.DeserializeObject<List<Doctor>>(jsonContent);
+
+                builder.Entity<Doctor>().HasData(doctors);
+
+                foreach (var doctor in doctors)
+                {
+                    Console.WriteLine($"ID: {doctor.Id}, Name: {doctor.Name}, Password: {doctor.Password}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("A fájl nem található!");
+            }
+
+            // -------------------------------------- caresensairdatas
+
+            //using (TextFieldParser parser = new TextFieldParser("C:\\Users\\Peti ROG\\Desktop\\Tanulós\\Diabetes Webapplication Backend\\CareSensAirDatas.csv"))
+            //{
+            //    parser.TextFieldType = FieldType.Delimited;
+            //    parser.SetDelimiters(",");
+            //    List<CareSensAirData> CareSensAirDatadatas = new List<CareSensAirData>();
+            //    double trend = 0.00;
+
+            //    while (!parser.EndOfData)
+            //    {
+            //        //Processing row
+            //        string[] row = parser.ReadFields();
+                    
+
+            //            if (row[6] == "")
+            //            {
+            //                CareSensAirDatadatas.Add(new CareSensAirData
+            //                {
+            //                    Device = row[0],
+            //                    SerialNumber = row[1],
+            //                    Numberof_Value =int.Parse(row[2]),
+            //                    Date_Time = DateTime.Parse( row[3]),
+            //                    Value = double.Parse(row[4], CultureInfo.InvariantCulture),
+            //                    Unit = row[5],
+            //                    Trend_Rate = 0.00
+            //                });
+
+            //            }
+            //            else
+            //            {
+            //                CareSensAirDatadatas.Add(new CareSensAirData
+            //                {
+
+            //                    Device = row[0],
+            //                    SerialNumber = row[1],
+            //                    Numberof_Value = int.Parse(row[2]),
+            //                    Date_Time = DateTime.Parse(row[3]),
+            //                    Value = double.Parse(row[4], CultureInfo.InvariantCulture),
+            //                    Unit = row[5],
+            //                    Trend_Rate = double.Parse(row[6], CultureInfo.InvariantCulture)
+            //                });
+            //            }
+                    
+            //    }
+            //   // builder.Entity<CareSensAirData>().HasData(CareSensAirDatadatas);
+
+            //}
+
+
+
+
+
             builder.Entity<Player>().HasData(players);
             builder.Entity<Team>().HasData(teams);
             builder.Entity<Trainer>().HasData(trainers);
@@ -93,4 +177,7 @@ namespace AD41HN_HFT_2022231.Repository
         }
 
     }
+
+    
+    
 }

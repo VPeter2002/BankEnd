@@ -23,6 +23,7 @@ function setupSignalR() {
     connection.on("PlayerUpdated", (user, message) => {
         getdata();
     });
+    
    
 
     connection.onclose(async () => {

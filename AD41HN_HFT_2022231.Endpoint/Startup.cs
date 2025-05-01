@@ -1,4 +1,4 @@
-
+﻿
 using AD41HN_HFT_2022231.Endpoint.Services;
 using AD41HN_HFT_2022231.Logic.Classes;
 using AD41HN_HFT_2022231.Logic.Interfaces;
@@ -33,11 +33,26 @@ namespace AD41HN_HFT_2022231.Endpoint
             services.AddTransient<IRepository<Player>, PlayerRepository>();
             services.AddTransient<IRepository<Team>, TeamRepository>();
             services.AddTransient<IRepository<Trainer>, TrainerRepository>();
-            
+            services.AddTransient<IRepository<Doctor>, DoctorRepository>();
+            services.AddTransient<IRepository<CareSensAirData>, CareSensAirDataRepository>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
+
+            services.AddControllers();
 
             services.AddTransient<IPlayerLogic, PlayerLogic>();
             services.AddTransient<ITeamLogic, TeamLogic>();
             services.AddTransient<ITrainerLogic, TrainerLogic>();
+            services.AddTransient<IDoctorLogic, DoctorLogic>();
+            services.AddTransient<ICareSensAirDataLogic, CareSensAirDataLogic>();
             services.AddSignalR();
 
             services.AddControllers();
@@ -45,11 +60,41 @@ namespace AD41HN_HFT_2022231.Endpoint
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AD41HN_HFT_2022231.Endpoint", Version = "v1" });
             });
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
+
+            services.AddControllersWithViews();
+
+            // 🔹 Hozzáadjuk a Session támogatást
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Munkamenet lejárati idő
+                options.Cookie.HttpOnly = true; // Biztonságos cookie
+                options.Cookie.IsEssential = true; // Szükséges a működéshez
+            });
         }
+
+        
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<FWCDbContext>();
+                DbSeeder.SeedCareSensData(context);
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -66,12 +111,30 @@ namespace AD41HN_HFT_2022231.Endpoint
                 await context.Response.WriteAsJsonAsync(response);
             }));
 
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseRouting();
+
+            app.UseCors("AllowAll"); // Fontos!
+
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+
             app.UseCors(x => x
                .AllowCredentials()
                .AllowAnyMethod()
                .AllowAnyHeader()
                .WithOrigins("http://localhost:14957"));
 
+            app.UseCors("AllowAll");
             app.UseRouting();
 
             app.UseAuthorization();

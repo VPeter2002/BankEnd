@@ -1,6 +1,8 @@
-﻿using AD41HN_HFT_2022231.Logic.Interfaces;
+﻿using AD41HN_HFT_2022231.Endpoint.Services;
+using AD41HN_HFT_2022231.Logic.Interfaces;
 using AD41HN_HFT_2022231.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,10 +15,12 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
     public class TeamController : ControllerBase
     {
         ITeamLogic logic;
+        IHubContext<SignalRHub> hub;
 
-        public TeamController(ITeamLogic logic)
+        public TeamController(ITeamLogic logic, IHubContext<SignalRHub> hub)
         {
             this.logic = logic;
+            this.hub = hub; 
         }
 
         // GET: api/<TeamController>
@@ -38,18 +42,24 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
         public void Create([FromBody] Team value)
         {
             this.logic.Create(value);
+            this.hub.Clients.All.SendAsync("TeamCreated", value);
         }
 
         [HttpPut]
         public void Put([FromBody] Team value)
         {
             this.logic.Update(value);
+            this.hub.Clients.All.SendAsync("TeamUpdated", value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+
+
+            var teamToDelete = this.logic.Read(id);
             this.logic.Delete(id);
+            this.hub.Clients.All.SendAsync("TeamDeleted", teamToDelete);
         }
         //[HttpGet("{teamname}")]
 

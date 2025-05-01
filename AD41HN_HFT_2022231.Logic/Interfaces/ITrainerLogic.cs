@@ -10,6 +10,7 @@ namespace AD41HN_HFT_2022231.Logic.Interfaces
         void Create(Trainer item);
         void Delete(int id);
         IEnumerable<Team> GetTeamOfTrainer_id(int id);
+        IEnumerable<Trainer> GetGermanyTrainers();
         Trainer Read(int id);
         IEnumerable<Trainer> ReadAll();
         void Update(Trainer item);

@@ -61,9 +61,40 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
         [HttpGet("{id}")]
         public IEnumerable<Team> GetTeamOfTrainer_id(int id)
         {
-
             return this.trainerlogic.GetTeamOfTrainer_id(id);
         }
+
+        [HttpPost]
+        public IEnumerable GetHun()
+        {
+            return this.playerlogic.GetHun();
+        }
+
+
+        [HttpPost]
+        public IEnumerable GetGKs()
+        {
+            return this.playerlogic.GetGKs();
+        }
+
+        [HttpPost]
+        public IEnumerable GetEng()
+        {
+            return this.playerlogic.GetEng();
+        }
+
+        [HttpPost]
+        public IEnumerable GetTeamIds()
+        {
+            return this.teamlogic.GetTeamIds();
+        }
+
+        [HttpPost]
+        public IEnumerable GetGermanyTrainers()
+        {
+            return this.trainerlogic.GetGermanyTrainers();
+        }
+  
 
 
     }
