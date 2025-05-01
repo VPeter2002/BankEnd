@@ -52,6 +52,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
             return ((CareSensAirDataRepository)this.repo).GetByDateRange(from, to).ToList();
         }
 
+
         public void Update(CareSensAirData item)
         {
             this.repo.Update(item);

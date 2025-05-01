@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
+namespace AD41HN_HFT_2022231.Models
+{
+    public class OhioGlucose
+    {
+
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public int Value { get; set; }
+        public int TimeStamp { get; set; }
+        public int PatID { get; set; }
+        public string Type { get; set; }
+        public  string Key { get; set; }
+        public int M { get; set; }
+        public string Collection { get; set; }
+        
+
+        public OhioGlucose()
+        {
+
+        }
+    }
+}

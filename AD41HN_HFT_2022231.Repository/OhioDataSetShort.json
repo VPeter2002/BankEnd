@@ -1,0 +1,587 @@
+[
+  {
+    "value": 5.5,
+    "timestamp": 1810722089,
+    "patID": 540,
+    "type": "glucose",
+    "key": "s1t961z2nykasni33hg3jhrpg05s951j",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "value": 3.9,
+    "timestamp": 1810721189,
+    "patID": 540,
+    "type": "glucose",
+    "key": "ljom06di9t1kxsf1bq5n0dv2td8r98px",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "value": 6.8,
+    "timestamp": 1810730489,
+    "patID": 540,
+    "type": "glucose",
+    "key": "dm7helr17azd31fpoqim02pgk4ejlso2",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "value": 6.5,
+    "timestamp": 1810731089,
+    "patID": 540,
+    "type": "glucose",
+    "key": "15ao4upongm5rtgpwr7gbyr04xhtx538",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "value": 5.4,
+    "timestamp": 1810732289,
+    "patID": 540,
+    "type": "glucose",
+    "key": "3q2g27un2i6j2q12x7k9cljpdb3xu3ek",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1813390800,
+    "type": "meal",
+    "patID": 540,
+    "foods": [
+      {
+        "amount": 55,
+        "id": 38,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Breakfast"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "vg1k41df3vore74z9gsxco557mh7fn9y",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1810313040,
+    "type": "meal",
+    "patID": 544,
+    "foods": [
+      {
+        "amount": 140,
+        "id": 13,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Dinner"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "ozx169trw1f88h2y0efbk2j52ewgfx9o",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1810718640,
+    "type": "meal",
+    "patID": 544,
+    "foods": [
+      {
+        "amount": 107,
+        "id": 33,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Lunch"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "6gahzdd23ytake71zo5f8w7mul952ig0",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1812216120,
+    "type": "meal",
+    "patID": 544,
+    "foods": [
+      {
+        "amount": 130,
+        "id": 99,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Dinner"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "dfp5xj59s0zf347nt4oaf55ty91d0gl9",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1812433680,
+    "type": "meal",
+    "patID": 544,
+    "foods": [
+      {
+        "amount": 37,
+        "id": 106,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Breakfast"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "qn8c0394exr5hv0f668r72kdoi0ypab3",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1746259740,
+    "type": "meal",
+    "patID": 552,
+    "foods": [
+      {
+        "amount": 65,
+        "id": 45,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Breakfast"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "z72vrml8pkjnjkt09gl36fjmc7byddmh",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1746524400,
+    "type": "meal",
+    "patID": 552,
+    "foods": [
+      {
+        "amount": 65,
+        "id": 51,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Lunch"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "sju4hqip4xyjb6ekrpspvzsnfwnytixk",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1746771840,
+    "type": "meal",
+    "patID": 552,
+    "foods": [
+      {
+        "amount": 75,
+        "id": 57,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Breakfast"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "69g0tgzo5mlcue1zkqesqdpwyfkum84o",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1747223100,
+    "type": "meal",
+    "patID": 552,
+    "foods": [
+      {
+        "amount": 30,
+        "id": 71,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "HypoCorrection"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "eo74utina71kjequpz7nhcuc070y1mak",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1747812600,
+    "type": "meal",
+    "patID": 552,
+    "foods": [
+      {
+        "amount": 20,
+        "id": 76,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Breakfast"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "rzu6xo6cnqvk1n0z5k0yotwntdies7v6",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1639391100,
+    "type": "meal",
+    "patID": 559,
+    "foods": [
+      {
+        "amount": 75,
+        "id": 28,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Lunch"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "emkxzpzkdoeowh0odiltoellxidpq2gm",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1639975800,
+    "type": "meal",
+    "patID": 559,
+    "foods": [
+      {
+        "amount": 45,
+        "id": 45,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Breakfast"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "1yj36gxo2qbfimua53nprldkuxtiy3vk",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1640339700,
+    "type": "meal",
+    "patID": 559,
+    "foods": [
+      {
+        "amount": 45,
+        "id": 63,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Lunch"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "lg6naum4swjp4s1rmaza638hjrjovd9z",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1631814780,
+    "type": "meal",
+    "patID": 563,
+    "foods": [
+      {
+        "amount": 40,
+        "id": 12,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Dinner"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "53c9u2sgsbs3zi9hsvksj716oz3kasey",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1632639600,
+    "type": "meal",
+    "patID": 563,
+    "foods": [
+      {
+        "amount": 15,
+        "id": 40,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Breakfast"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "bghrb1pq4lhtljkyvwp63903v2vwmsxu",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1633249800,
+    "type": "meal",
+    "patID": 563,
+    "foods": [
+      {
+        "amount": 15,
+        "id": 59,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Breakfast"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "ddhy0gfgwacxmof87mjd0srvfth9octp",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1633323240,
+    "type": "meal",
+    "patID": 563,
+    "foods": [
+      {
+        "amount": 40,
+        "id": 62,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "HypoCorrection"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "wde1o6w38fvpb4bna7cebgsvym7sqz8v",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1635240600,
+    "type": "meal",
+    "patID": 563,
+    "foods": [
+      {
+        "amount": 35,
+        "id": 120,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Lunch"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "nyx8980iyg3kz7z4mfl0dyf9cu9ai4op",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1640023980,
+    "type": "meal",
+    "patID": 570,
+    "foods": [
+      {
+        "amount": 100,
+        "id": 47,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Dinner"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "ner009meoputwth7ayxyz6ch3fedgl7f",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1642070040,
+    "type": "meal",
+    "patID": 570,
+    "foods": [
+      {
+        "amount": 140,
+        "id": 123,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Lunch"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "y97azgg66trg2zal0reyyxcbzw21ftop",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1638023700,
+    "type": "meal",
+    "patID": 575,
+    "foods": [
+      {
+        "amount": 25,
+        "id": 54,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Snack"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "onbr6f89g9xxn8qorh4uy8fgkyb76kh9",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1640601240,
+    "type": "meal",
+    "patID": 575,
+    "foods": [
+      {
+        "amount": 50,
+        "id": 209,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Breakfast"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "yytjqjb0n0whj75cdo0h4mxej9rrah1x",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1640984040,
+    "type": "meal",
+    "patID": 575,
+    "foods": [
+      {
+        "amount": 102,
+        "id": 237,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Snack"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "iicj8wc2vwhm0c31am6lqqhfxdzgr347",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1751828400,
+    "type": "meal",
+    "patID": 584,
+    "foods": [
+      {
+        "amount": 50,
+        "id": 17,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Dinner"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "keihrdsmw4k6wfdlskbsg99c1xwwijc1",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1630520700,
+    "type": "meal",
+    "patID": 588,
+    "foods": [
+      {
+        "amount": 16,
+        "id": 17,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Snack"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "b5srscnf0c4nxr3kw4pke9zz51o4gi6z",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1630992000,
+    "type": "meal",
+    "patID": 588,
+    "foods": [
+      {
+        "amount": 17,
+        "id": 49,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Breakfast"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "11i4oj5ew568tmfmgqqmcmyboeb7ukfm",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  },
+  {
+    "timestamp": 1631195220,
+    "type": "meal",
+    "patID": 588,
+    "foods": [
+      {
+        "amount": 15,
+        "id": 60,
+        "text": "Carbohydrate",
+        "unit": "GRAM",
+        "details": {
+          "mealType": "Snack"
+        },
+        "weights": 1
+      }
+    ],
+    "key": "422l0aiqwdo9521r1ijkh9zoc21wpdso",
+    "m": 1685439170,
+    "collection": "OHIODATASET"
+  }
+]

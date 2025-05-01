@@ -35,6 +35,8 @@ namespace AD41HN_HFT_2022231.Endpoint
             services.AddTransient<IRepository<Trainer>, TrainerRepository>();
             services.AddTransient<IRepository<Doctor>, DoctorRepository>();
             services.AddTransient<IRepository<CareSensAirData>, CareSensAirDataRepository>();
+            services.AddTransient<IRepository<OhioGlucose>, OhioGlucoseRepository>();
+            services.AddTransient<IRepository<OhioMeal>, OhioMealRepository>();
 
             services.AddCors(options =>
             {
@@ -53,6 +55,8 @@ namespace AD41HN_HFT_2022231.Endpoint
             services.AddTransient<ITrainerLogic, TrainerLogic>();
             services.AddTransient<IDoctorLogic, DoctorLogic>();
             services.AddTransient<ICareSensAirDataLogic, CareSensAirDataLogic>();
+            services.AddTransient<IOhioGlucoseLogic, OhioGlucoseLogic>();
+            services.AddTransient<IOhioMealLogic, OhioMealLogic>();
             services.AddSignalR();
 
             services.AddControllers();
@@ -93,7 +97,10 @@ namespace AD41HN_HFT_2022231.Endpoint
             {
                 var context = scope.ServiceProvider.GetRequiredService<FWCDbContext>();
                 DbSeeder.SeedCareSensData(context);
+                DbSeederOhio.ImportJsonToDatabase(context);
             }
+
+          
 
             if (env.IsDevelopment())
             {

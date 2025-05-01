@@ -8,6 +8,7 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace AD41HN_HFT_2022231.Repository
 
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<CareSensAirData> CareSensAirDatas { get; set; }
+        public DbSet<OhioGlucose> OhioGlucose { get; set; }
+        public DbSet<OhioMeal> OhioMeal { get; set; }
 
 
         public FWCDbContext()
@@ -172,6 +175,9 @@ namespace AD41HN_HFT_2022231.Repository
                             .HasOne(t => t.Trainer)
                             .WithOne(t => t.Team)
                             .HasForeignKey<Team>(t => t.TrainerId));
+
+            builder.Entity<FoodItem>()
+            .OwnsOne(f => f.Details);
 
 
         }
