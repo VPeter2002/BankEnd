@@ -42,6 +42,12 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         }
 
+        public IEnumerable<OhioMeal> ReadById(int id)
+        {
+            return ((OhioMealRepository)this.repo).ReadById(id).ToList();
+
+        }
+
         public IEnumerable<OhioMeal> ReadAll()
         {
             return this.repo.ReadAll();

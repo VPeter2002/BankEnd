@@ -12,7 +12,7 @@ namespace AD41HN_HFT_2022231.Models
     public class OhioMeal
     {
 
-        [Key]
+       
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public long Timestamp { get; set; }
@@ -20,7 +20,7 @@ namespace AD41HN_HFT_2022231.Models
         public string Type { get; set; }
 
         public int PatID { get; set; }
-
+        [Key]
         public string Key { get; set; }
 
         public long M { get; set; }

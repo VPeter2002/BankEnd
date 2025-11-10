@@ -19,6 +19,7 @@ namespace AD41HN_HFT_2022231.Repository.ModelRepositories
             return ctx.OhioGlucose.FirstOrDefault(t => t.Id == id);
         }
 
+
         public override void Update(OhioGlucose item)
         {
 
@@ -37,7 +38,15 @@ namespace AD41HN_HFT_2022231.Repository.ModelRepositories
             }
             ctx.SaveChanges();
         }
+        //.----------------------------------------------
+        public IList<OhioGlucose> ReadById(int id)
+        {
+                    return ctx.OhioGlucose
+            .Where(g => g.PatID == id)
+            .AsEnumerable()
+            .OrderBy(g => g.DateTime)
+            .ToList();
+                }
 
-        
     }
 }

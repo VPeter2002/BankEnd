@@ -35,8 +35,12 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
             return this.logic.ReadAll().ToList();
         }
 
-        
 
+        [HttpGet("id")]
+        public IEnumerable<OhioMeal> ReadById(int id)
+        {
+            return this.logic.ReadById(id).ToList();
+        }
 
         [HttpPost]
         public void Create([FromBody] CareSensAirData value)

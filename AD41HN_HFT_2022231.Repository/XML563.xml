@@ -1,0 +1,189 @@
+<patient id="563" weight="99" insulin_type="Humalog 200">
+<glucose_level>
+<event ts="13-09-2021 12:33:00" value="219"/>
+<event ts="13-09-2021 12:38:00" value="229"/>
+<event ts="13-09-2021 12:43:00" value="224"/>
+<event ts="13-09-2021 12:48:00" value="221"/>
+</glucose_level>
+<finger_stick>
+<event ts="13-09-2021 11:36:37" value="236"/>
+<event ts="13-09-2021 12:23:15" value="219"/>
+<event ts="13-09-2021 13:50:58" value="169"/>
+<event ts="13-09-2021 16:10:05" value="112"/>
+<event ts="13-09-2021 17:13:46" value="94"/>
+</finger_stick>
+<basal>
+<event ts="13-09-2021 09:40:35" value="1.1"/>
+<event ts="13-09-2021 10:30:00" value="0.9"/>
+<event ts="13-09-2021 11:30:00" value="0.6"/>
+<event ts="13-09-2021 18:00:00" value="0.7"/>
+<event ts="14-09-2021 00:00:00" value="1.5"/>
+<event ts="14-09-2021 03:00:00" value="1.55"/>
+</basal>
+<temp_basal>
+<event ts_begin="23-09-2021 05:09:38" ts_end="23-09-2021 05:30:46" value="0.0"/>
+<event ts_begin="08-10-2021 05:45:25" ts_end="08-10-2021 06:00:28" value="0.0"/>
+</temp_basal>
+<bolus>
+<event ts_begin="13-09-2021 11:36:37" ts_end="13-09-2021 11:36:37" type="normal" dose="8.5" bwz_carb_input="0"/>
+<event ts_begin="13-09-2021 12:23:15" ts_end="13-09-2021 12:23:15" type="normal" dose="9.2" bwz_carb_input="46"/>
+<event ts_begin="13-09-2021 13:50:58" ts_end="13-09-2021 13:50:58" type="normal" dose="3.3" bwz_carb_input="0"/>
+<event ts_begin="13-09-2021 16:10:05" ts_end="13-09-2021 16:10:05" type="normal" dose="7.4" bwz_carb_input="37"/>
+<event ts_begin="13-09-2021 18:34:18" ts_end="13-09-2021 18:34:18" type="normal" dose="4.3" bwz_carb_input="22"/>
+<event ts_begin="13-09-2021 20:48:27" ts_end="13-09-2021 20:48:27" type="normal" dose="6.0" bwz_carb_input="30"/>
+<event ts_begin="13-09-2021 22:04:22" ts_end="13-09-2021 22:04:22" type="normal" dose="1.1" bwz_carb_input="0"/>
+<event ts_begin="14-09-2021 06:05:15" ts_end="14-09-2021 06:05:15" type="normal" dose="16.1" bwz_carb_input="63"/>
+</bolus>
+<meal>
+<event ts="14-09-2021 06:02:00" type="Breakfast" carbs="40"/>
+<event ts="14-09-2021 08:00:00" type="HypoCorrection" carbs="35"/>
+<event ts="14-09-2021 11:30:00" type="Lunch" carbs="23"/>
+<event ts="14-09-2021 16:10:00" type="Snack" carbs="5"/>
+<event ts="14-09-2021 19:42:00" type="Dinner" carbs="35"/>
+</meal>
+<sleep>
+<event ts_begin="14-09-2021 05:15:00" ts_end="13-09-2021 22:00:00" quality="3"/>
+<event ts_begin="15-09-2021 05:00:00" ts_end="14-09-2021 22:05:00" quality="3"/>
+<event ts_begin="16-09-2021 05:04:00" ts_end="15-09-2021 22:30:00" quality="3"/>
+<event ts_begin="17-09-2021 05:46:00" ts_end="16-09-2021 23:00:00" quality="3"/>
+<event ts_begin="18-09-2021 07:43:00" ts_end="18-09-2021 06:48:00" quality="3"/>
+<event ts_begin="19-09-2021 05:40:00" ts_end="18-09-2021 22:04:00" quality="2"/>
+</sleep>
+<work>
+<event ts_begin="14-09-2021 06:45:00" ts_end="14-09-2021 15:16:00" intensity="3"/>
+<event ts_begin="15-09-2021 06:27:00" ts_end="15-09-2021 15:15:00" intensity="2"/>
+<event ts_begin="16-09-2021 06:50:00" ts_end="16-09-2021 15:10:00" intensity="3"/>
+<event ts_begin="22-09-2021 06:50:00" ts_end="23-09-2021 06:30:00" intensity="3"/>
+<event ts_begin="24-09-2021 06:37:00" ts_end="24-09-2021 15:30:00" intensity="3"/>
+<event ts_begin="27-09-2021 06:42:00" ts_end="27-09-2021 15:15:00" intensity="3"/>
+
+</work>
+<stressors/>
+<hypo_event>
+<event ts="13-09-2021 10:43:00">
+<symptom name=""/>
+</event>
+<event ts="14-09-2021 08:00:00">
+<symptom name=""/>
+</event>
+<event ts="15-09-2021 05:07:00">
+<symptom name=""/>
+</event>
+<event ts="16-09-2021 06:50:00">
+<symptom name=""/>
+</event>
+<event ts="17-09-2021 12:01:00">
+<symptom name=""/>
+</event>
+<event ts="24-09-2021 03:29:00">
+<symptom name=""/>
+</event>
+<event ts="04-10-2021 06:54:00">
+<symptom name=""/>
+</event>
+<event ts="18-10-2021 03:00:00">
+<symptom name=""/>
+</event>
+<event ts="26-10-2021 05:28:00">
+<symptom name=""/>
+</event>
+</hypo_event>
+<illness>
+<event ts_begin="14-09-2021 11:33:00" ts_end="" type="" description=" "/>
+</illness>
+<exercise>
+<event ts="13-09-2021 11:00:00" intensity="8" type=" " duration="0" competitive=""/>
+<event ts="15-09-2021 17:18:00" intensity="3" type=" " duration="112" competitive=""/>
+<event ts="18-09-2021 09:30:00" intensity="3" type=" " duration="285" competitive=""/>
+<event ts="20-09-2021 16:46:00" intensity="6" type=" " duration="89" competitive=""/>
+<event ts="23-09-2021 16:10:00" intensity="5" type=" " duration="80" competitive=""/>
+<event ts="26-09-2021 13:39:00" intensity="3" type=" " duration="51" competitive=""/>
+<event ts="27-09-2021 18:00:00" intensity="3" type=" " duration="76" competitive=""/>
+<event ts="29-09-2021 19:10:00" intensity="5" type=" " duration="70" competitive=""/>
+<event ts="02-10-2021 07:45:00" intensity="6" type=" " duration="55" competitive=""/>
+<event ts="03-10-2021 14:00:00" intensity="3" type=" " duration="259" competitive=""/>
+<event ts="04-10-2021 17:00:00" intensity="5" type=" " duration="80" competitive=""/>
+<event ts="06-10-2021 17:00:00" intensity="4" type=" " duration="50" competitive=""/>
+<event ts="09-10-2021 12:30:00" intensity="5" type=" " duration="150" competitive=""/>
+<event ts="10-10-2021 16:00:00" intensity="4" type=" " duration="20" competitive=""/>
+<event ts="16-10-2021 08:40:00" intensity="6" type=" " duration="260" competitive=""/>
+<event ts="17-10-2021 07:30:00" intensity="6" type=" " duration="300" competitive=""/>
+<event ts="25-10-2021 16:30:00" intensity="5" type=" " duration="60" competitive=""/>
+</exercise>
+<basis_heart_rate>
+<event ts="17-09-2021 09:28:00" value="87"/>
+<event ts="17-09-2021 09:33:00" value="96"/>
+<event ts="17-09-2021 09:38:00" value="113"/>
+<event ts="17-09-2021 09:43:00" value="103"/>
+<event ts="17-09-2021 09:48:00" value="97"/>
+<event ts="17-09-2021 09:53:00" value="97"/>
+<event ts="17-09-2021 09:58:00" value="97"/>
+<event ts="17-09-2021 10:03:00" value="96"/>
+<event ts="17-09-2021 10:08:00" value="94"/>
+<event ts="17-09-2021 10:13:00" value="99"/>
+<event ts="17-09-2021 10:18:00" value="101"/>
+<event ts="17-09-2021 10:23:00" value="98"/>
+<event ts="17-09-2021 10:28:00" value="99"/>
+<event ts="17-09-2021 10:33:00" value="97"/>
+<event ts="17-09-2021 10:38:00" value="102"/>
+</basis_heart_rate>
+<basis_gsr>
+<event ts="17-09-2021 09:30:00" value="5.6E-5"/>
+<event ts="17-09-2021 09:35:00" value="5.6E-5"/>
+<event ts="17-09-2021 09:40:00" value="5.5E-5"/>
+<event ts="17-09-2021 09:45:00" value="5.4E-5"/>
+<event ts="17-09-2021 09:50:00" value="5.5E-5"/>
+<event ts="17-09-2021 09:55:00" value="5.5E-5"/>
+<event ts="17-09-2021 10:00:00" value="5.7E-5"/>
+<event ts="17-09-2021 10:05:00" value="5.7E-5"/>
+<event ts="17-09-2021 10:10:00" value="5.8E-5"/>
+</basis_gsr>
+<basis_skin_temperature>
+<event ts="17-09-2021 09:30:00" value="87.26"/>
+<event ts="17-09-2021 09:35:00" value="89.42"/>
+<event ts="17-09-2021 09:40:00" value="87.08"/>
+<event ts="17-09-2021 09:45:00" value="86.54"/>
+<event ts="17-09-2021 09:50:00" value="87.8"/>
+<event ts="17-09-2021 09:55:00" value="88.7"/>
+<event ts="17-09-2021 10:00:00" value="89.78"/>
+<event ts="17-09-2021 10:05:00" value="90.5"/>
+<event ts="17-09-2021 10:10:00" value="91.04"/>
+<event ts="17-09-2021 10:15:00" value="91.22"/>
+<event ts="17-09-2021 10:20:00" value="89.6"/>
+</basis_skin_temperature>
+<basis_air_temperature>
+<event ts="17-09-2021 09:30:00" value="83.3"/>
+<event ts="17-09-2021 09:35:00" value="85.82"/>
+<event ts="17-09-2021 09:40:00" value="80.06"/>
+<event ts="17-09-2021 09:45:00" value="83.3"/>
+<event ts="17-09-2021 09:50:00" value="84.56"/>
+<event ts="17-09-2021 09:55:00" value="85.82"/>
+<event ts="17-09-2021 10:00:00" value="87.44"/>
+<event ts="17-09-2021 10:05:00" value="87.8"/>
+<event ts="17-09-2021 10:10:00" value="88.52"/>
+<event ts="17-09-2021 10:15:00" value="87.8"/>
+</basis_air_temperature>
+<basis_steps>
+<event ts="17-09-2021 09:28:00" value="0"/>
+<event ts="17-09-2021 09:33:00" value="10"/>
+<event ts="17-09-2021 09:38:00" value="48"/>
+<event ts="17-09-2021 09:43:00" value="0"/>
+<event ts="17-09-2021 09:48:00" value="0"/>
+<event ts="17-09-2021 09:53:00" value="0"/>
+<event ts="17-09-2021 09:58:00" value="0"/>
+<event ts="17-09-2021 10:03:00" value="0"/>
+</basis_steps>
+<basis_sleep>
+<event tbegin="17-09-2021 14:49:00" tend="17-09-2021 14:51:00" quality="95" type=" "/>
+<event tbegin="17-09-2021 14:51:00" tend="17-09-2021 15:28:00" quality="95" type=" "/>
+<event tbegin="17-09-2021 23:23:00" tend="17-09-2021 23:25:00" quality="82" type=" "/>
+<event tbegin="17-09-2021 23:25:00" tend="17-09-2021 23:34:00" quality="82" type=" "/>
+<event tbegin="17-09-2021 23:34:00" tend="17-09-2021 23:39:00" quality="82" type=" "/>
+<event tbegin="17-09-2021 23:39:00" tend="17-09-2021 23:48:00" quality="82" type=" "/>
+<event tbegin="17-09-2021 23:48:00" tend="17-09-2021 23:56:00" quality="82" type=" "/>
+<event tbegin="17-09-2021 23:56:00" tend="18-09-2021 00:14:00" quality="82" type=" "/>
+<event tbegin="18-09-2021 00:14:00" tend="18-09-2021 00:20:00" quality="82" type=" "/>
+<event tbegin="18-09-2021 00:20:00" tend="18-09-2021 00:48:00" quality="82" type=" "/>
+<event tbegin="18-09-2021 00:48:00" tend="18-09-2021 01:05:00" quality="82" type=" "/>
+</basis_sleep>
+</patient>

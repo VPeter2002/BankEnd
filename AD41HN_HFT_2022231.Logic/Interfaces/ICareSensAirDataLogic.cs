@@ -10,7 +10,7 @@ namespace AD41HN_HFT_2022231.Logic.Interfaces
     {
         void Create(CareSensAirData item);
         void Delete(int id);
-        Player Read(int id);
+        CareSensAirData Read(int id);
         IEnumerable<CareSensAirData> ReadAll();
         IEnumerable<CareSensAirData> GetByDateRange(DateTime from, DateTime to);
         void Update(CareSensAirData item);

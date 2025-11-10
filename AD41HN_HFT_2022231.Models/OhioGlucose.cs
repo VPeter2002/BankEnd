@@ -12,16 +12,20 @@ namespace AD41HN_HFT_2022231.Models
     public class OhioGlucose
     {
 
-        [Key]
+        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int Value { get; set; }
-        public int TimeStamp { get; set; }
+        public double Value { get; set; }
         public int PatID { get; set; }
         public string Type { get; set; }
+        [Key]
         public  string Key { get; set; }
         public int M { get; set; }
         public string Collection { get; set; }
+        public int TimeStamp { get; set; }
+        [NotMapped]
+        public DateTime DateTime => DateTimeOffset.FromUnixTimeSeconds(TimeStamp).DateTime;
+
         
 
         public OhioGlucose()

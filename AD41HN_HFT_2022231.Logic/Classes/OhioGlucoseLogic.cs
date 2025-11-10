@@ -42,12 +42,23 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         }
 
+        public IEnumerable<OhioGlucose> ReadById(int id)
+        {
+            return ((OhioGlucoseRepository)this.repo).ReadById(id).ToList();
+
+        }
+
         public IEnumerable<OhioGlucose> ReadAll()
         {
             return this.repo.ReadAll();
         }
 
-       
+        
+
+        //public IEnumerable<OhioGlucose> GetById()
+        //{
+        //    return this.repo.ReadAll();
+        //}
 
         public void Update(OhioGlucose item)
         {

@@ -11,7 +11,10 @@ namespace AD41HN_HFT_2022231.Logic.Interfaces
         void Create(OhioGlucose item);
         void Delete(int id);
         IEnumerable<OhioGlucose> ReadAll();
-      
+
+        IEnumerable<OhioGlucose> ReadById(int id);
+
+
         void Update(OhioGlucose item);
     }
 }

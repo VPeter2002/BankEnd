@@ -51,7 +51,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
             this.repo.Update(item);
         }
 
-        Player IDoctorLogic.Read(int id)
+        Doctor IDoctorLogic.Read(int id)
         {
             throw new NotImplementedException();
         }

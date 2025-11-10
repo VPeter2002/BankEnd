@@ -35,7 +35,13 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
             return this.logic.ReadAll().ToList();
         }
 
-       
+        [HttpGet("id")]
+        public IEnumerable<OhioGlucose> ReadById(int id)
+        {
+            return this.logic.ReadById(id).ToList();
+        }
+
+
 
 
 

@@ -18,7 +18,7 @@ namespace AD41HN_HFT_2022231.Repository
         {
             if (context.OhioGlucose.Any()) return;
 
-            using var reader = new StreamReader("C:\\Users\\Peti ROG\\Desktop\\Tanulós\\Diabetes Webapplication Backend másolata\\AD41HN_HFT_2022231.Repository\\OhioDataSetShort.json");
+            using var reader = new StreamReader("C:\\Users\\Peti ROG\\Desktop\\Tanulós\\Diabetes Webapplication Backend másolata\\AD41HN_HFT_2022231.Repository\\OhioDataSet.json");
             var json = reader.ReadToEnd();
             var items = JsonConvert.DeserializeObject<JArray>(json);
 
@@ -65,13 +65,16 @@ namespace AD41HN_HFT_2022231.Repository
                                 meal.Foods.Add(food);
                             }
                         }
-
                         context.OhioMeal.Add(meal);
                      break;
-                        //case "exercise":
-                        //    var exercise = item.ToObject<ExerciseSession>();
-                        //    context.Exercises.Add(exercise);
-                        //    break;
+                    case "insulin":
+                        var insulin = item.ToObject<OhioInsulin>();
+                        context.OhioInsulin.Add(insulin);
+                        break;
+                    case "exercise":
+                        var exercise = item.ToObject<OhioExercise>();
+                        context.OhioExercise.Add(exercise);
+                        break;
                 }
             }
 

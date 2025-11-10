@@ -1,5 +1,4 @@
-﻿
-using AD41HN_HFT_2022231.Endpoint.Services;
+﻿using AD41HN_HFT_2022231.Endpoint.Services;
 using AD41HN_HFT_2022231.Logic.Classes;
 using AD41HN_HFT_2022231.Logic.Interfaces;
 using AD41HN_HFT_2022231.Models;
@@ -30,13 +29,14 @@ namespace AD41HN_HFT_2022231.Endpoint
         {
             services.AddTransient<FWCDbContext>();
 
-            services.AddTransient<IRepository<Player>, PlayerRepository>();
-            services.AddTransient<IRepository<Team>, TeamRepository>();
-            services.AddTransient<IRepository<Trainer>, TrainerRepository>();
+           
             services.AddTransient<IRepository<Doctor>, DoctorRepository>();
             services.AddTransient<IRepository<CareSensAirData>, CareSensAirDataRepository>();
             services.AddTransient<IRepository<OhioGlucose>, OhioGlucoseRepository>();
             services.AddTransient<IRepository<OhioMeal>, OhioMealRepository>();
+            services.AddTransient<IRepository<OhioInsulin>, OhioInsulinRepository>();
+            services.AddTransient<IRepository<OhioExercise>, OhioExerciseRepository>();
+            services.AddTransient<IRepository<Patient>, PatientRepository>();
 
             services.AddCors(options =>
             {
@@ -50,13 +50,14 @@ namespace AD41HN_HFT_2022231.Endpoint
 
             services.AddControllers();
 
-            services.AddTransient<IPlayerLogic, PlayerLogic>();
-            services.AddTransient<ITeamLogic, TeamLogic>();
-            services.AddTransient<ITrainerLogic, TrainerLogic>();
+            
             services.AddTransient<IDoctorLogic, DoctorLogic>();
             services.AddTransient<ICareSensAirDataLogic, CareSensAirDataLogic>();
             services.AddTransient<IOhioGlucoseLogic, OhioGlucoseLogic>();
             services.AddTransient<IOhioMealLogic, OhioMealLogic>();
+            services.AddTransient<IOhioInsulinLogic, OhioInsulinLogic>();
+            services.AddTransient<IOhioExerciseLogic, OhioExerciseLogic>();
+            services.AddTransient<IPatientLogic, PatientLogic>();
             services.AddSignalR();
 
             services.AddControllers();
@@ -97,6 +98,7 @@ namespace AD41HN_HFT_2022231.Endpoint
             {
                 var context = scope.ServiceProvider.GetRequiredService<FWCDbContext>();
                 DbSeeder.SeedCareSensData(context);
+                DbSeeder.SeedXmlPatientData(context,"C:\\Users\\Peti ROG\\Desktop\\Tanulós\\Diabetes Webapplication Backend másolata\\AD41HN_HFT_2022231.Repository\\XML563.xml");
                 DbSeederOhio.ImportJsonToDatabase(context);
             }
 
@@ -144,7 +146,7 @@ namespace AD41HN_HFT_2022231.Endpoint
             app.UseCors("AllowAll");
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthorization(); 
 
             app.UseEndpoints(endpoints =>
             {

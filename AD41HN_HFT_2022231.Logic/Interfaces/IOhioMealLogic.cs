@@ -12,7 +12,9 @@ namespace AD41HN_HFT_2022231.Logic.Interfaces
         void Delete(int id);
         OhioMeal Read(int id);
         IEnumerable<OhioMeal> ReadAll();
-       
+        IEnumerable<OhioMeal> ReadById(int id);
+
+
         void Update(OhioMeal item);
     }
 }

@@ -37,6 +37,15 @@ namespace AD41HN_HFT_2022231.Repository.ModelRepositories
             }
             ctx.SaveChanges();
         }
+
+        public IEnumerable<OhioMeal> ReadById(int id)
+        {
+                return ctx.OhioMeal
+        .Where(g => g.PatID == id)
+        .AsEnumerable()
+        .OrderBy(g => g.DateTime)
+        .ToList();
+            }
     }
 }
 
