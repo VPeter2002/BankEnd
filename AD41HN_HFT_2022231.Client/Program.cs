@@ -1,4 +1,13 @@
-﻿//using AD41HN_HFT_2022231.Models;
+﻿
+
+
+
+
+
+
+
+
+//using AD41HN_HFT_2022231.Models;
 //using ConsoleTools;
 //using Microsoft.EntityFrameworkCore;
 //using MovieDbApp.Client;
@@ -12,7 +21,7 @@
 //    internal class Program
 //    {
 //        static RestService rest;
-        
+
 //        static void Create(string entity)
 //        {
 //            if (entity == "Player")
@@ -116,10 +125,10 @@
 //                rest.Delete(id, "trainer");
 //            }
 //        }
-        
+
 //        static void Main(string[] args)
 //        {
-            
+
 
 //            rest = new RestService("http://localhost:5218/");
 
@@ -153,13 +162,13 @@
 //                .Add("Trainer", () => trainerSubMenu.Show())
 //                .Add("Exit", ConsoleMenu.Close);
 
-            
+
 //            menu.Show();
 
 
 
 
-//        }
+//        }as
 //    }
 //}
 
