@@ -17,7 +17,10 @@ namespace AD41HN_HFT_2022231.Repository
 {
     public class FWCDbContext : DbContext
     {
-       
+        public FWCDbContext(DbContextOptions<FWCDbContext> options) : base(options)
+        {
+
+        }
 
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<CareSensAirData> CareSensAirDatas { get; set; }
@@ -28,11 +31,8 @@ namespace AD41HN_HFT_2022231.Repository
         public DbSet<Patient> Patients { get; set; }
 
 
-        public FWCDbContext()
-        {
-            this.Database.EnsureCreated();
-
-        }
+        
+        /*
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
 
@@ -44,6 +44,7 @@ namespace AD41HN_HFT_2022231.Repository
                 builder.UseLazyLoadingProxies();
             }
         }
+        ˛*/
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

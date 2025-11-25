@@ -58,31 +58,6 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
             this.hub.Clients.All.SendAsync("OhioGlucoseUpdated", value);
         }
 
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //    var playerToDelete = this.logic.Read(id);
-        //    this.logic.Delete(id);
-        //    this.hub.Clients.All.SendAsync("CareSensAirDataDeleted", playerToDelete);
-        //}
-        //[HttpGet("{post}")]
-
-        //public IEnumerable GetPlayersOnThisPost(string post)
-        //{
-        //    return this.logic.GetPlayersOnThisPost(post);
-
-        //}
-        //[HttpGet("{Playername}")]
-
-        //public IEnumerable GetTeamName(string Playername)
-        //{
-        //    return this.logic.GetTeamName(Playername);
-        //}
-        //[HttpGet("{Playername}")]
-
-        //public IEnumerable GetTrainerName(string Playername)
-        //{
-        //    return this.logic.GetTrainerName(Playername);
-        //}
+        
     }
 }
