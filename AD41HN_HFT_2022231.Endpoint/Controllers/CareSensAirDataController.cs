@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System;
+using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -69,24 +71,67 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
             this.logic.Delete(id);
             this.hub.Clients.All.SendAsync("CareSensAirDataDeleted", playerToDelete);
         }
-        //[HttpGet("{post}")]
+        // POST: api/CareSensAirData/upload
+        [HttpPost("upload")]
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("Nincs kiválasztott fájl.");
 
-        //public IEnumerable GetPlayersOnThisPost(string post)
-        //{
-        //    return this.logic.GetPlayersOnThisPost(post);
+            int count = 0;
 
-        //}
-        //[HttpGet("{Playername}")]
+            try
+            {
+                using (var stream = new StreamReader(file.OpenReadStream()))
+                {
+                    // Fejléc átugrása (ha van) - Opcionális, most feltételezzük, hogy az első sor fejléc
+                    // await stream.ReadLineAsync(); 
 
-        //public IEnumerable GetTeamName(string Playername)
-        //{
-        //    return this.logic.GetTeamName(Playername);
-        //}
-        //[HttpGet("{Playername}")]
+                    while (!stream.EndOfStream)
+                    {
+                        var line = await stream.ReadLineAsync();
+                        var values = line.Split(','); // Vagy ';' attól függően, mi az elválasztó
 
-        //public IEnumerable GetTrainerName(string Playername)
-        //{
-        //    return this.logic.GetTrainerName(Playername);
-        //}
+                        // FONTOS: Itt kell hozzáigazítani a te CSV formátumodhoz!
+                        // Feltételezés: 1. oszlop = Dátum, 2. oszlop = Érték (mmol/l)
+
+                        if (values.Length >= 2)
+                        {
+                            try
+                            {
+                                // Dátum és Érték kinyerése
+                                // CareSens formátum függő! Lehet, hogy cserélni kell a sorrendet.
+                                if (DateTime.TryParse(values[0], out DateTime date) &&
+                                    double.TryParse(values[1].Replace(".", ","), out double glucoseVal))
+                                {
+                                    var newData = new CareSensAirData
+                                    {
+                                        Date_Time = date,
+                                        Value = glucoseVal,
+                                        Unit = "mmol/L",
+                                        Device = "Imported",
+                                        SerialNumber = "CSV"
+                                    };
+
+                                    this.logic.Create(newData);
+                                    count++;
+                                }
+                            }
+                            catch
+                            {
+                                // Ha egy sor hibás, átugorjuk
+                                Console.WriteLine($"Hibás sor: {line}");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Hiba a feldolgozáskor: {ex.Message}");
+            }
+
+            return Ok(new { message = $"Sikeres feltöltés! {count} új mérés rögzítve." });
+        }
     }
 }

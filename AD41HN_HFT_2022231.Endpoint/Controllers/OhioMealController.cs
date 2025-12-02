@@ -42,11 +42,7 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
             return this.logic.ReadById(id).ToList();
         }
 
-        [HttpPost]
-        public void Create([FromBody] CareSensAirData value)
-        {
-           
-        }
+       
 
         [HttpPut]
         public void Put([FromBody] OhioMeal value)
@@ -62,24 +58,23 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
             this.logic.Delete(id);
             this.hub.Clients.All.SendAsync("OhioMeal Deleted", playerToDelete);
         }
-        //[HttpGet("{post}")]
+        // POST: api/OhioMeal
+        [HttpPost]
+        public void Create([FromBody] OhioMeal value)
+        {
+            // Ha nincs kulcs, generálunk
+            if (string.IsNullOrEmpty(value.Key)) value.Key = Guid.NewGuid().ToString();
 
-        //public IEnumerable GetPlayersOnThisPost(string post)
-        //{
-        //    return this.logic.GetPlayersOnThisPost(post);
+            // Ha nincs dátum (M), mostani idő
+            if (value.M == 0) value.M = DateTimeOffset.Now.ToUnixTimeSeconds();
 
-        //}
-        //[HttpGet("{Playername}")]
+            // Nullázzuk az étel ID-kat, hogy újak jöjjenek létre
+            if (value.Foods != null)
+            {
+                foreach (var food in value.Foods) food.Id = 0;
+            }
 
-        //public IEnumerable GetTeamName(string Playername)
-        //{
-        //    return this.logic.GetTeamName(Playername);
-        //}
-        //[HttpGet("{Playername}")]
-
-        //public IEnumerable GetTrainerName(string Playername)
-        //{
-        //    return this.logic.GetTrainerName(Playername);
-        //}
+            this.logic.Create(value);
+        }
     }
 }

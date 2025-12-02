@@ -42,11 +42,7 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
         }
 
 
-        [HttpPost]
-        public void Create([FromBody] OhioInsulin value)
-        {
-           
-        }
+        
 
         [HttpPut]
         public void Put([FromBody] OhioInsulin value)
@@ -62,24 +58,14 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
             this.logic.Delete(id);
             this.hub.Clients.All.SendAsync("OhioInsulin Deleted", playerToDelete);
         }
-        //[HttpGet("{post}")]
+        // POST: api/OhioInsulin
+        [HttpPost]
+        public void Create([FromBody] OhioInsulin value)
+        {
+            if (string.IsNullOrEmpty(value.Key)) value.Key = Guid.NewGuid().ToString();
+            if (value.M == 0) value.M = DateTimeOffset.Now.ToUnixTimeSeconds();
 
-        //public IEnumerable GetPlayersOnThisPost(string post)
-        //{
-        //    return this.logic.GetPlayersOnThisPost(post);
-
-        //}
-        //[HttpGet("{Playername}")]
-
-        //public IEnumerable GetTeamName(string Playername)
-        //{
-        //    return this.logic.GetTeamName(Playername);
-        //}
-        //[HttpGet("{Playername}")]
-
-        //public IEnumerable GetTrainerName(string Playername)
-        //{
-        //    return this.logic.GetTrainerName(Playername);
-        //}
+            this.logic.Create(value);
+        }
     }
 }
