@@ -21,7 +21,7 @@ namespace AD41HN_HFT_2022231.Repository
             ctx.SaveChanges();
         }
 
-        public IEnumerable<T> ReadAll()
+        public virtual IEnumerable<T> ReadAll()
         {
             return ctx.Set<T>();
         }

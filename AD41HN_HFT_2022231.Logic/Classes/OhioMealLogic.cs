@@ -44,8 +44,7 @@ namespace AD41HN_HFT_2022231.Logic.Classes
 
         public IEnumerable<OhioMeal> ReadById(int id)
         {
-            return ((OhioMealRepository)this.repo).ReadById(id).ToList();
-
+            return this.repo.ReadAll().Where(m => m.PatID == id).ToList();
         }
 
         public IEnumerable<OhioMeal> ReadAll()

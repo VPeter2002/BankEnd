@@ -147,37 +147,38 @@ namespace AD41HN_HFT_2022231.Endpoint
             // ------------------------------------------------------
             // 1. LÉPÉS: Adatbázisok Létrehozása és Feltöltése (Seeding)
             // ------------------------------------------------------
+            // Startup.cs -> Configure metódus eleje
+
+            // Startup.cs -> Configure metódus eleje
+
             using (var scope = app.ApplicationServices.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                try
-                {
-                    // Először hozzuk létre az Identity (Felhasználói) adatbázist
-                    var identityContext = services.GetRequiredService<ApplicationDbContext>();
-                    identityContext.Database.EnsureCreated();
 
-                    // Másodszor hozzuk létre a Diabétesz adatbázist
-                    var fwcContext = services.GetRequiredService<FWCDbContext>();
-                    fwcContext.Database.EnsureCreated();
+                // 1. Identity (SQLite) - Ez működik
+                var identityContext = services.GetRequiredService<ApplicationDbContext>();
+                identityContext.Database.EnsureCreated();
 
-                    // HARMADSZOR: Most, hogy az adatbázis létezik, feltölthetjük (ha üres)
-                    if (!fwcContext.OhioGlucose.Any()) // Feltételezve, hogy a DbSet neve 'OhioGlucoses'
-                    {
-                        var logger = services.GetRequiredService<ILogger<Startup>>();
-                        logger.LogInformation("Adatbázis üres, Seeding (feltöltés) indul...");
+                // 2. Diabétesz (SQL Server) - ITT A BAJ!
+                // Most kivesszük a try-catch-et, hogy lássuk a VALÓDI hibát
+                var fwcContext = services.GetRequiredService<FWCDbContext>();
 
-                        DbSeeder.SeedCareSensData(fwcContext);
-                        DbSeeder.SeedXmlPatientData(fwcContext, "C:\\Users\\Peti ROG\\Desktop\\Tanulós\\Diabetes Webapplication Backend másolata\\AD41HN_HFT_2022231.Repository\\XML563.xml"); // JAVÍTSD AZ ELÉRÉSI UTAT, HA KELL!
-                        DbSeederOhio.ImportJsonToDatabase(fwcContext);
+                Console.WriteLine("Adatbázis törlése...");
+                fwcContext.Database.EnsureDeleted(); // Töröljük a régit (ha van)
 
-                        logger.LogInformation("Seeding (feltöltés) befejezve.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    var logger = services.GetRequiredService<ILogger<Startup>>();
-                    logger.LogError(ex, "Hiba történt az adatbázisok (EnsureCreated) létrehozása vagy feltöltése (Seeding) közben.");
-                }
+                Console.WriteLine("Adatbázis létrehozása...");
+                fwcContext.Database.EnsureCreated(); // HA ITT HIBA VAN, MOST KI FOGJA DOBNI!
+
+                // Feltöltés
+                Console.WriteLine("Adatok feltöltése...");
+                // Ellenőrizd, hogy ez az útvonal létezik-e a gépeden!
+                string xmlPath = @"C:\Users\Peti ROG\Desktop\Tanulós\Diabetes Webapplication Backend másolata\AD41HN_HFT_2022231.Repository\XML563.xml";
+
+                DbSeeder.SeedCareSensData(fwcContext);
+                DbSeeder.SeedXmlPatientData(fwcContext, xmlPath);
+                DbSeederOhio.ImportJsonToDatabase(fwcContext);
+
+                Console.WriteLine("KÉSZ!");
             }
 
             // ------------------------------------------------------

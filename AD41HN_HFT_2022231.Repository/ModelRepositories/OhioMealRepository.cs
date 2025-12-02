@@ -1,10 +1,6 @@
-﻿
-using AD41HN_HFT_2022231.Models;
-using System;
-using System.Collections.Generic;
+﻿using AD41HN_HFT_2022231.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AD41HN_HFT_2022231.Repository.ModelRepositories
 {
@@ -14,38 +10,31 @@ namespace AD41HN_HFT_2022231.Repository.ModelRepositories
         {
         }
 
+        // Egy elem lekérése ID alapján (+Foods betöltése)
         public override OhioMeal Read(int id)
         {
-            return ctx.OhioMeal.FirstOrDefault(t => t.Id == id);
+            return ctx.OhioMeal
+                .Include(m => m.Foods)
+                .FirstOrDefault(t => t.Id == id);
         }
 
+        // Összes elem lekérése (+Foods betöltése)
+        public override IQueryable<OhioMeal> ReadAll()
+        {
+            return ctx.OhioMeal
+                .Include(m => m.Foods);
+        }
+
+        // 👇 EZ A METÓDUS HIÁNYZOTT (CS0534 hiba javítása) 👇
         public override void Update(OhioMeal item)
         {
-
             var old = Read(item.Id);
-            foreach (var prop in old.GetType().GetProperties())
+            if (old != null)
             {
-                try
-                {
-                    prop.SetValue(old, prop.GetValue(item));
-                }
-                catch (Exception)
-                {
-
-
-                }
+                // Frissítjük az értékeket az új elem értékeivel
+                ctx.Entry(old).CurrentValues.SetValues(item);
+                ctx.SaveChanges();
             }
-            ctx.SaveChanges();
         }
-
-        public IEnumerable<OhioMeal> ReadById(int id)
-        {
-                return ctx.OhioMeal
-        .Where(g => g.PatID == id)
-        .AsEnumerable()
-        .OrderBy(g => g.DateTime)
-        .ToList();
-            }
     }
 }
-

@@ -21,7 +21,7 @@ namespace AD41HN_HFT_2022231.Repository
         {
 
         }
-
+        public DbSet<ChatMessage> ChatMessages { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<CareSensAirData> CareSensAirDatas { get; set; }
         public DbSet<OhioGlucose> OhioGlucose { get; set; }
