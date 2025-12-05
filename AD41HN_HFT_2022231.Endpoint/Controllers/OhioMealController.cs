@@ -62,6 +62,7 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
         [HttpPost]
         public void Create([FromBody] OhioMeal value)
         {
+            ;
             // Ha nincs kulcs, generálunk
             if (string.IsNullOrEmpty(value.Key)) value.Key = Guid.NewGuid().ToString();
 
