@@ -11,6 +11,7 @@ using System.IO;
 using System;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using System.Text;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -92,57 +93,65 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
             if (file == null || file.Length == 0)
                 return BadRequest("Nincs kiválasztott fájl.");
 
-            if (patId == 0)
-                return BadRequest("Nincs megadva Páciens ID.");
-
             int count = 0;
+            var debugLog = new StringBuilder();
 
             try
             {
-                using (var stream = new StreamReader(file.OpenReadStream()))
+                using (var reader = new StreamReader(file.OpenReadStream()))
                 {
-                    // Ha van fejléc a CSV-ben, ugorjuk át (opcionális):
-                    // await stream.ReadLineAsync(); 
+                    var jsonContent = await reader.ReadToEndAsync();
 
-                    while (!stream.EndOfStream)
+                    var options = new System.Text.Json.JsonSerializerOptions
                     {
-                        var line = await stream.ReadLineAsync();
-                        if (string.IsNullOrWhiteSpace(line)) continue;
+                        PropertyNameCaseInsensitive = true,
+                        NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowReadingFromString
+                    };
 
-                        var values = line.Split(','); // Vagy ';'
+                    var items = System.Text.Json.JsonSerializer.Deserialize<List<System.Text.Json.JsonElement>>(jsonContent, options);
 
-                        // Feltételezett CSV formátum: Dátum, Érték
-                        // Pl: 2025-05-20 08:00, 5.5
-                        if (values.Length >= 2)
+                    foreach (var item in items)
+                    {
+                        System.Text.Json.JsonElement typeProp = default;
+                        bool typeFound = false;
+
+                        foreach (var prop in item.EnumerateObject())
                         {
-                            try
+                            if (prop.Name.Equals("type", StringComparison.OrdinalIgnoreCase))
                             {
-                                if (DateTime.TryParse(values[0], out DateTime date) &&
-                                    double.TryParse(values[1].Replace(".", ","), out double glucoseVal))
+                                typeProp = prop.Value;
+                                typeFound = true;
+                                break;
+                            }
+                        }
+
+                        if (typeFound)
+                        {
+                            var typeValue = typeProp.GetString();
+
+                            if (string.Equals(typeValue, "glucose", StringComparison.OrdinalIgnoreCase))
+                            {
+                                try
                                 {
-                                    var newData = new OhioGlucose
-                                    {
-                                        Key = Guid.NewGuid().ToString(),
-                                        PatID = patId,
+                                    var glucoseData = System.Text.Json.JsonSerializer.Deserialize<OhioGlucose>(item.GetRawText(), options);
 
-                                        // HIBÁS SOR VOLT: DateTime = date.ToString(...)
+                                    // --- ADATOK FELÜLÍRÁSA A BIZTONSÁGOS MENTÉSHEZ ---
+                                    glucoseData.PatID = patId;
 
-                                        // HELYES SOR (A dátumot átváltjuk másodpercre):
-                                        TimeStamp = (int)((DateTimeOffset)date).ToUnixTimeSeconds(),
+                                    // MINDIG generálunk új kulcsot, hogy ne legyen ütközés!
+                                    glucoseData.Key = Guid.NewGuid().ToString();
 
-                                        Value = glucoseVal,
-                                        Type = "glucose",
-                                        Collection = "CSV_IMPORT",
-                                        M = (int)DateTimeOffset.Now.ToUnixTimeSeconds() // Itt is int-re kell castolni, ha a modelledben int
-                                    };
+                                    // Időbélyeg kezelése
+                                    if (glucoseData.M == 0) glucoseData.M = (int)DateTimeOffset.Now.ToUnixTimeSeconds();
 
-                                    this.logic.Create(newData);
+                                    this.logic.Create(glucoseData);
                                     count++;
                                 }
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.WriteLine($"Hiba a sor feldolgozásakor ({line}): {ex.Message}");
+                                catch (Exception ex)
+                                {
+                                    var innerMessage = ex.InnerException != null ? ex.InnerException.Message : "Nincs belső hiba.";
+                                    debugLog.AppendLine($"Hiba a mentésnél: {ex.Message} -> Belső: {innerMessage}");
+                                }
                             }
                         }
                     }
@@ -150,12 +159,16 @@ namespace AD41HN_HFT_2022231.Endpoint.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Hiba: {ex.Message}");
+                return StatusCode(500, $"Kritikus hiba a fájl olvasásakor: {ex.Message}");
             }
 
-            return Ok(new { message = $"Sikeres feltöltés! {count} adat rögzítve az {patId}-es pácienshez." });
-        }
+            if (count == 0)
+            {
+                return Ok(new { message = $"Feltöltés kész, DE 0 adat lett rögzítve. \nOkok:\n{debugLog}" });
+            }
 
+            return Ok(new { message = $"Sikeres feltöltés! {count} új mérés rögzítve." });
+        }
 
     }
 }
